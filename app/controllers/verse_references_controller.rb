@@ -1,0 +1,2 @@
+class VerseReferencesController < ApplicationController
+end

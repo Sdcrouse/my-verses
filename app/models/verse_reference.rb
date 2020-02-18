@@ -1,0 +1,2 @@
+class VerseReference < ApplicationRecord
+end
