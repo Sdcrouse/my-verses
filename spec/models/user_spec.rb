@@ -15,7 +15,7 @@ RSpec.describe User, type: :model do
     expect(User.new(valid_user_attributes)).to be_valid
   end
 
-  it "can be saved" do
+  it "can be saved if it is valid" do
     user = User.create(valid_user_attributes)
     expect(user.id).to_not be_nil
     expect(User.last).to eq(user)
