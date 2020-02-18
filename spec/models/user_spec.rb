@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe User do
+RSpec.describe User, type: :model do
   let(:valid_user_attributes) do
     {
       username: "lorem.ipsum",
@@ -11,11 +11,11 @@ describe User do
     }
   end
 
-  it "recognizes a valid new user" do
+  it "is valid" do
     expect(User.new(valid_user_attributes)).to be_valid
   end
 
-  it "saves a valid new user" do
+  it "can be saved" do
     user = User.create(valid_user_attributes)
     expect(user.id).to_not be_nil
     expect(User.last).to eq(user)
