@@ -43,4 +43,14 @@ RSpec.describe VerseReference, type: :model do
     )
   end
 
+  it "titleizes its book, no matter what the user input is" do
+    book_titles = ["1 kings", "song of Songs", "gaLatiaNs"]
+    titleized_book_titles = ["1 Kings", "Song Of Songs", "Galatians"]
+
+    book_titles.each_with_index do |book_title, index|
+      reference = VerseReference.new(valid_verse_reference_attributes.merge(book: book_title))
+      expect(reference.book).to eq(titleized_book_titles[index])
+    end
+  end
+
 end
