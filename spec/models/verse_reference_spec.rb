@@ -53,4 +53,13 @@ RSpec.describe VerseReference, type: :model do
     end
   end
 
+  it "is invalid if the chapter is not a number between 1 and 150" do
+    invalid_chapters = ["-5", "151", "Lorem ipsum"]
+
+    invalid_chapters.each do |chap|
+      bad_reference = VerseReference.new(valid_verse_reference_attributes.merge(chapter: chap))
+      expect(bad_reference).to_not be_valid
+    end
+  end
+
 end
