@@ -23,17 +23,9 @@ RSpec.describe VerseReference, type: :model do
     expect(valid_verse.verse_end).to eq("6")
   end
 
-  it "is valid with a book, chapter, verse_start, and verse_end" do
-    expect(VerseReference.new(valid_verse_reference_attributes)).to be_valid
-  end
-
   it "can be saved with valid attributes" do
     valid = VerseReference.create(valid_verse_reference_attributes)
     expect(valid.id).to_not be_nil
-  end
-
-  it "is valid without a verse_start or verse_end" do
-    expect(VerseReference.new(only_book_and_chapter)).to be_valid
   end
 
   it "can be saved without a verse_start or verse_end" do
@@ -41,10 +33,10 @@ RSpec.describe VerseReference, type: :model do
     expect(missing_optional_attributes.id).to_not be_nil
   end
 
-  it "is invalid without a book and chapter" do
-    invalid_verse_reference = VerseReference.new
+  it "is invalid without a book and chapter and can't be saved" do
+    invalid_verse_reference = VerseReference.create
 
-    expect(invalid_verse_reference).to_not be_valid
+    expect(invalid_verse_reference.id).to be_nil
     expect(invalid_verse_reference.errors.full_messages).to include(
       "Book can't be blank",
       "Chapter can't be blank"
