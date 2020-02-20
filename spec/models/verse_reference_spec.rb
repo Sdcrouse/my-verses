@@ -62,4 +62,17 @@ RSpec.describe VerseReference, type: :model do
     end
   end
 
+  it "is invalid if the verse_start (when given) is not a string between '1' and '176'" do
+    invalid_verse_starts = ["-1", "177", "Bad verse number"]
+
+    invalid_verse_starts.each do |verse|
+      bad_reference = VerseReference.new(valid_verse_reference_attributes.merge(verse_start: verse))
+      expect(bad_reference).to_not be_valid
+    end
+  end
+
+  it "is invalid if the verse_start is blank, but the verse_end is not" do
+    bad_reference = VerseReference.new(valid_verse_reference_attributes.except(:verse_start))
+    expect(bad_reference).to_not be_valid
+  end
 end
