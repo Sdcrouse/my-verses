@@ -20,11 +20,28 @@ class VerseReference < ApplicationRecord
   # Ultimately, my goal is to require that the verse_start is present when the verse_end is present,
   # And that the verse_start, when given, is between 1 and 176 even when the verse_end is blank.
 
+  # This got tricky; I don't think I can use "inclusion", and "numericality" doesn't work with strings.
+  validate :verse_end_must_be_greater_than_verse_start,
+           :verse_end_can_only_be_176_or_lower
+
   def book=(book)
     # Instead of validating for a titleized book, 
     # I will convert it to one here.
     
     # write_attribute(:book, book.downcase.titleize) # This works.
     super(book.downcase.titleize) # But this is the Rails way to do it.
+  end
+
+  def verse_end_must_be_greater_than_verse_start
+    if verse_end.present? && verse_end.to_i <= verse_start.to_i
+      errors.add(:verse_end, "must be a number greater than verse start")
+    end
+  end
+
+  def verse_end_can_only_be_176_or_lower
+    # Psalm 119 has the highest number of verses in the Bible: 176
+    if verse_end.present? && verse_end.to_i > 176
+      errors.add(:verse_end, "can only be 176 or lower")
+    end
   end
 end
