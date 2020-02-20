@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   resources :verse_references
-  resources :users, except: :index
+
+  get '/signup', to: 'users#new'
+  resources :users, except: [:index, :new]
   # Next steps: User sign up, login, and logout
 
   root 'static#home'
