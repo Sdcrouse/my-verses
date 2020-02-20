@@ -75,4 +75,13 @@ RSpec.describe VerseReference, type: :model do
     bad_reference = VerseReference.new(valid_verse_reference_attributes.except(:verse_start))
     expect(bad_reference).to_not be_valid
   end
+
+  it "is invalid if the verse_end (when given) is not a number, is <= verse_start, or is > '176'" do
+    invalid_verse_ends = ["Lorem Ipsum", "4", "5", "177"]
+
+    invalid_verse_ends.each do |verse|
+      bad_reference = VerseReference.new(valid_verse_reference_attributes.merge(verse_end: verse))
+      expect(bad_reference).to_not be_valid
+    end
+  end
 end
