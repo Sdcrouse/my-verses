@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   resources :verse_references
-  resources :users
-  # Next steps: Homepage, User sign up, login, and logout
+  resources :users, except: :index
+  # Next steps: User sign up, login, and logout
 
   root 'static#home'
   
