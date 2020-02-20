@@ -1,6 +1,9 @@
 class VerseReference < ApplicationRecord
   validates :book, presence: true
-  validates :chapter, presence: true
+  validates :chapter, presence: true, inclusion: { within: "1".."150", 
+    message: "%{value} is not a chapter in any book of the Bible. It must be a number between 1 and 150."}
+    # The Bible does not have any chapter numbers lower than 1.
+    # The Book of Psalms has the greatest number of chapters: 150.
 
   def book=(book)
     # Instead of validating for a titleized book, 
