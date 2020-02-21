@@ -1,1 +1,26 @@
 <h1>Sign up here!</h1>
+
+<%= form_with model: @user do |f| %>
+  <p>
+    <%= f.label :username, "Username:" %>
+    <%= f.text_field :username %>
+  </p>
+  <p>
+    <%= f.label :email, "E-mail:" %>
+    <%= f.email_field :email %>
+  </p>
+  <p>
+    <%= f.label :first_name, "First name (optional):" %>
+    <%= f.text_field :first_name %>
+  </p>
+  <p>
+    <%= f.label :last_name, "Last name (optional):" %>
+    <%= f.text_field :last_name %>
+  </p>
+  <p>
+    <%= f.label :password, "Password:" %>
+    <%= f.password_field :password %>
+  </p>
+
+  <%= f.submit "Sign up!" %>
+<% end %>
