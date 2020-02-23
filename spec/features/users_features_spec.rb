@@ -10,17 +10,17 @@ RSpec.describe "Feature Test: User Signup", type: :feature do
     end
 
     it "instructs the user to sign up" do
-      within "h1" do
-        expect(page).to have_content("Sign up")
-      end
+      # This way, I can instruct the user to sign up however I want to.
+      expect(page).to have_selector("h1")
     end
 
-    it "has fields for username, email, first name, last name, and password" do
-      expect(page).to have_content("Username")
-      expect(page).to have_content("E-mail")
-      expect(page).to have_content("First name")
-      expect(page).to have_content("Last name")
-      expect(page).to have_content("Password")
+    it "has nested inputs for username, email, first name, last name, and password" do
+      # This adds more flexibility to the way I name my input fields.
+      expect(page).to have_field("user_username")
+      expect(page).to have_field("user_email")
+      expect(page).to have_field("user_first_name")
+      expect(page).to have_field("user_last_name")
+      expect(page).to have_field("user_password")
     end
   end
 end
