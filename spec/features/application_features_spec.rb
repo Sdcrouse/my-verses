@@ -9,7 +9,8 @@ RSpec.describe "Feature Test: Page Links", type: :feature do
     it "has a link to the homepage" do
       all_page_paths.each do |pagepath|
         visit pagepath
-        expect(page).to have_link("Home", href: pagepath)
+        click_link("Home")
+        expect(current_path).to eq("/")
       end
     end
   end
