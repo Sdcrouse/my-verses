@@ -2,6 +2,18 @@
 
 <h5><span class="redstar">*</span> Required field</h5>
 
+<% if @user.errors.any? %>
+  <h4 class="error-heading">
+    The following <%= pluralize(@user.errors.count, "error") %> prevented you from signing up:
+  </h4>
+
+  <ol>
+    <% @user.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ol>
+<% end %>
+
 <%= form_for(@user) do |f| %>
   <p>
     <span class="redstar">*</span>
