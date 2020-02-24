@@ -5,8 +5,20 @@ class UsersController < ApplicationController
     @user = User.new
   end
 
-  # Next step: The #create action.
   def create
-    binding.pry
+    @user = User.new(user_params)
+
+    if @user.save
+      redirect_to user_path(@user)
+    end
   end
+
+  def show
+    @user = User.find_by(id: params[:id])
+  end
+
+  private
+    def user_params
+      params.require(:user).permit(:username, :email, :first_name, :last_name, :password)
+    end
 end
