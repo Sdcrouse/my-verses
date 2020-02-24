@@ -1,7 +1,5 @@
 require 'rails_helper'
 
-# These tests need some refactoring.
-
 RSpec.describe "Feature Test: User Signup", type: :feature do
   before { visit signup_path }
 
@@ -18,11 +16,14 @@ RSpec.describe "Feature Test: User Signup", type: :feature do
 
     it "has nested inputs for username, email, first name, last name, and password" do
       # This adds more flexibility to the way I name my input fields.
-      expect(page).to have_field("user_username")
-      expect(page).to have_field("user_email")
-      expect(page).to have_field("user_first_name")
-      expect(page).to have_field("user_last_name")
-      expect(page).to have_field("user_password")
+
+      new_user_form_fields = [
+        "user_username", "user_email", "user_first_name", "user_last_name", "user_password"
+      ]
+
+      new_user_form_fields.each do |form_field|
+        expect(page).to have_field(form_field)
+      end
     end
   end
 
