@@ -35,6 +35,8 @@ RSpec.describe "Feature Test: User Signup", type: :feature do
       }
     end
 
+    let(:no_password) { valid_user_inputs.except(:user_password) }
+
     it "creates a valid User and redirects them to their profile page" do
       valid_user_inputs.each do |input_field, user_input|
         fill_in(input_field, with: user_input)
@@ -44,7 +46,8 @@ RSpec.describe "Feature Test: User Signup", type: :feature do
 
       expect(current_path).to eq("/users/1")
 
-      valid_user_inputs.each do |input_name, value|
+      no_password.each do |input_name, value|
+        # I don't want the password to be displayed on the user's profile.
         expect(page).to have_content(value)
       end
     end
