@@ -2,7 +2,7 @@
 
 <h5><span class="redstar">*</span> Required field</h5>
 
-<%= form_with model: @user do |f| %>
+<%= form_for(@user) do |f| %>
   <p>
     <span class="redstar">*</span>
     <%= f.label :username, "Username:" %>
