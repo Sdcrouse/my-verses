@@ -1,5 +1,7 @@
 require 'rails_helper'
 
+# These tests need some refactoring.
+
 RSpec.describe "Feature Test: User Signup", type: :feature do
   before { visit signup_path }
 
@@ -50,6 +52,21 @@ RSpec.describe "Feature Test: User Signup", type: :feature do
         # I don't want the password to be displayed on the user's profile.
         expect(page).to have_content(value)
       end
+    end
+
+    it "renders the signup page and displays errors when User signup fails" do
+      no_password.each do |input_field, user_input|
+        fill_in(input_field, with: user_input)
+      end
+
+      click_button("Sign up!")
+
+      # expect(current_path).to eq(signup_path) 
+      # For some reason, the UsersController gets stuck at "post '/users'", even though the /signup page is rendered.
+
+      expect(page).to have_selector("form#new_user")
+      expect(page).to have_css(".field_with_errors")
+      expect(page).to have_content("Password can't be blank")
     end
   end
 end
