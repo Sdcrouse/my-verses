@@ -23,4 +23,30 @@ RSpec.describe "Feature Test: User Signup", type: :feature do
       expect(page).to have_field("user_password")
     end
   end
+
+  describe "Signing up a User" do
+    let(:valid_user_inputs) do
+      {
+        :user_username => "bibleman",
+        :user_email => "mpeterson@gmail.com",
+        :user_first_name => "Miles",
+        :user_last_name => "Peterson",
+        :user_password => "swordofthespirit"
+      }
+    end
+
+    it "creates a valid User and redirects them to their profile page" do
+      valid_user_inputs.each do |input_field, user_input|
+        fill_in(input_field, with: user_input)
+      end
+
+      click_button("Sign up!")
+
+      expect(current_path).to eq("/users/1")
+
+      valid_user_inputs.each do |input_name, value|
+        expect(page).to have_content(value)
+      end
+    end
+  end
 end
