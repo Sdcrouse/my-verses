@@ -1,0 +1,9 @@
+<h1><%= @user.username %>'s Profile</h1>
+
+<p>
+  <strong>E-mail:</strong> <%= @user.email %>
+</p>
+
+<% if @user.first_name && @user.last_name %>
+  <p><strong>Full name:</strong> <%= @user.first_name %> <%= @user.last_name %></p>
+<% end %>
