@@ -1,1 +1,18 @@
 <h1>Returning users, please log in here.</h1>
+
+<h5><span class="redstar">*</span> Required field</h5>
+
+<%= form_for(@user, url: login_path) do |f| %>
+  <p>
+    <span class="redstar">*</span>
+    <%= f.label :username, "Username:" %>
+    <%= f.text_field :username, required: true %>
+  </p>
+  <p>
+    <span class="redstar">*</span>
+    <%= f.label :password, "Password:" %>
+    <%= f.password_field :password, required: true %>
+  </p>
+
+  <%= f.submit "Log in!" %>
+<% end %>
