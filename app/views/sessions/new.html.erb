@@ -2,17 +2,22 @@
 
 <h5><span class="redstar">*</span> Required field</h5>
 
-<%= form_for(@user, url: login_path) do |f| %>
+<%= form_tag login_path do %>
+  <!-- In this case, #form_for doesn't create the .field_with_errors class when a User can't log in.
+       This is likely because the form submits to /login instead of /users. 
+       To make the SessionsController cleaner, I am using #form_tag instead.
+  -->
+
   <p>
     <span class="redstar">*</span>
-    <%= f.label :username, "Username:" %>
-    <%= f.text_field :username, required: true %>
+    <%= label_tag :username, "Username:" %>
+    <%= text_field_tag :username, nil, required: true %>
   </p>
   <p>
     <span class="redstar">*</span>
-    <%= f.label :password, "Password:" %>
-    <%= f.password_field :password, required: true %>
+    <%= label_tag :password, "Password:" %>
+    <%= password_field_tag :password, nil, required: true %>
   </p>
 
-  <%= f.submit "Log in!" %>
+  <%= submit_tag "Log in!" %>
 <% end %>
