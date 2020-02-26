@@ -12,6 +12,13 @@
   <body>
     <nav>
       <%= link_to "Home", root_path %>
+
+      <% if logged_in? %>
+        <%= link_to "Your Profile", user_path(current_user) %>
+      <% else %>
+        <%= link_to "Sign Up", signup_path %>
+        <%= link_to "Log In", login_path %>
+      <% end %>
     </nav>
     
     <%= yield %>
