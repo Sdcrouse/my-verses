@@ -4,6 +4,6 @@
   <strong>E-mail:</strong> <%= @user.email %>
 </p>
 
-<% if @user.first_name && @user.last_name %>
-  <p><strong>Full name:</strong> <%= @user.first_name %> <%= @user.last_name %></p>
+<% if @user.full_name %>
+  <p><strong>Full name:</strong> <%= @user.full_name %></p>
 <% end %>
