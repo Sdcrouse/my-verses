@@ -1,5 +1,9 @@
 <h1>Returning users, please log in here.</h1>
 
+<% if flash.alert %>
+  <h3 class="error-heading"><%= flash.alert %></h3>
+<% end %>
+
 <h5><span class="redstar">*</span> Required field</h5>
 
 <%= form_tag login_path do %>
