@@ -1,3 +1,7 @@
+<% if flash[:success] %>
+  <p class="success"><%= flash[:success] %></p>
+<% end %>
+
 <h1>Returning users, please log in here.</h1>
 
 <% if flash.alert %>

@@ -17,9 +17,10 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-    # Be sure to prevent logged out users from doing this.
-
-    session.destroy
-    redirect_to login_path
+    if logged_in?
+      session.destroy
+      flash[:success] = "You have successfully logged out!"
+      redirect_to login_path
+    end
   end
 end
