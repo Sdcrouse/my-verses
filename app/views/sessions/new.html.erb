@@ -1,12 +1,10 @@
-<% if flash[:success] %>
-  <p class="success"><%= flash[:success] %></p>
+<% if flash.alert %>
+  <h3 class="error-heading"><%= flash.alert %></h3>
+<% elsif flash[:success] %>
+  <h3 class="success"><%= flash[:success] %></h3>
 <% end %>
 
 <h1>Returning users, please log in here.</h1>
-
-<% if flash.alert %>
-  <h3 class="error-heading"><%= flash.alert %></h3>
-<% end %>
 
 <h5><span class="redstar">*</span> Required field</h5>
 
