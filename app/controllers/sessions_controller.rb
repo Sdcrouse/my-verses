@@ -21,6 +21,9 @@ class SessionsController < ApplicationController
       session.destroy
       flash[:success] = "You have successfully logged out!"
       redirect_to login_path
+    else # Edge case
+      flash.alert = "You can't log out unless you're logged in!"
+      redirect_to login_path
     end
   end
 end
