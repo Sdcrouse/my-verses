@@ -8,4 +8,11 @@ class ApplicationController < ActionController::Base
   def logged_in?
     !!current_user
   end
+
+  private
+
+    def authorization_error_and_redirect
+      flash[:error] = "You are not authorized to access this page."
+      redirect_to root_path
+    end
 end
