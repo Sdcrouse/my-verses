@@ -23,6 +23,6 @@
   color: white;
 }
 
-.success-heading {
+.success-heading, .logged_in-heading {
   color: green;
 }
