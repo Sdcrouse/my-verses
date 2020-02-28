@@ -1,8 +1,4 @@
-<% if flash.alert %>
-  <h3 class="error-heading"><%= flash.alert %></h3>
-<% elsif flash[:success] %>
-  <h3 class="success"><%= flash[:success] %></h3>
-<% end %>
+<%= render 'shared/flash_messages' %>
 
 <h1>Returning users, please log in here.</h1>
 

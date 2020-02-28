@@ -11,7 +11,7 @@ class SessionsController < ApplicationController
       session[:user_id] = @user.id
       redirect_to user_path(@user)
     else
-      flash.alert = "Invalid username and/or password."
+      flash[:error] = "Invalid username and/or password."
       render :new
     end
   end
@@ -22,7 +22,7 @@ class SessionsController < ApplicationController
       flash[:success] = "You have successfully logged out!"
       redirect_to login_path
     else # Edge case
-      flash.alert = "You can't log out unless you're logged in!"
+      flash[:error] = "You can't log out unless you're logged in!"
       redirect_to login_path
     end
   end
