@@ -58,13 +58,12 @@ RSpec.describe User, type: :model do
     )
   end
 
-  it "is invalid without a unique email or username" do
+  it "is invalid without a unique email" do
     User.create(valid_user_attributes)
     same_user = User.create(valid_user_attributes)
 
     expect(same_user).to_not be_valid
     expect(same_user.errors.full_messages).to include(
-      "Username has already been taken",
       "Email has already been taken"
     )
   end
