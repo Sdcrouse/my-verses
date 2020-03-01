@@ -7,14 +7,15 @@ class SessionsController < ApplicationController
   end
 
   def create
-    @user = User.find_by(username: params[:username])
+    @user = User.find_by(email: params[:email])
+    # Here, I am assuming that no two users have the same email, and that the same user has only one account.
 
     if @user.try(:authenticate, params[:password])
       session[:user_id] = @user.id
       flash[:success] = "You are logged in!"
       redirect_to user_path(@user)
     else
-      flash[:error] = "Invalid username and/or password."
+      flash[:error] = "Invalid email and/or password."
       render :new
     end
   end
