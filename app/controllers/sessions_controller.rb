@@ -1,3 +1,5 @@
+require 'pry'
+
 class SessionsController < ApplicationController
   def new
     if logged_in?
@@ -29,5 +31,9 @@ class SessionsController < ApplicationController
       flash[:error] = "You can't log out unless you're logged in!"
       redirect_to login_path
     end
+  end
+
+  def fb_login
+    binding.pry
   end
 end
