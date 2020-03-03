@@ -1,5 +1,3 @@
-require 'pry'
-
 class SessionsController < ApplicationController
   def new
     if logged_in?
@@ -34,6 +32,18 @@ class SessionsController < ApplicationController
   end
 
   def fb_login
-    binding.pry
+    user = User.from_fb_omniauth(auth_info)
+    user.save
+    session[:user_id] = user.id
+    flash[:success] = "You are logged in!"
+    redirect_to user_path(user)
+
+    # I could add an error message here, but that would be a seldom-encountered edge case.
   end
+
+  private
+
+    def auth_info
+      request.env['omniauth.auth']['info']
+    end
 end
