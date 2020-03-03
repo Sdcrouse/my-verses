@@ -42,9 +42,7 @@
   <%= f.submit "Sign up!" %>
 <% end %>
 
-<h2>OR</h2>
-
-<%= link_to('Sign up with Facebook!', '/auth/facebook') %>
+<%= render partial: "shared/facebook_link", locals: {user_action: "Sign up"} %>
 <!-- At some point, I want to use the Facebook SDK for JavaScript; 
 this will allow me to generate a login button. This video may help:
 https://www.youtube.com/watch?v=E_XACDrZSiI -->
