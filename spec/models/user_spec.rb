@@ -86,4 +86,30 @@ RSpec.describe User, type: :model do
     end
   end
 
+  context "from OmniAuth" do
+    let(:fb_omniauth_info) do
+      {"email" => "st.nick@northpole.org", "name" => "Santa Claus"}
+    end
+
+    it "can initialize a User from an OmniAuth-Facebook hash" do
+      user = User.from_fb_omniauth(fb_omniauth_info)
+  
+      expect(user.email).to eq(fb_omniauth_info["email"])
+      expect(user.full_name).to eq(fb_omniauth_info["name"])
+      expect(user.first_name).to eq("Santa")
+      expect(user.last_name).to eq("Claus")
+      expect(user.username).to eq("santa.claus")
+      expect(user.password).to be_present
+    end
+
+    it "can find an existing User from an OmniAuth-Facebook hash" do
+      user1 = User.from_fb_omniauth(fb_omniauth_info)
+      user1.save
+      user2 = User.from_fb_omniauth(fb_omniauth_info)
+      
+      # user2 should be the same as user1 despite not being saved to the DB.
+      expect(user2).to eq(user1)
+    end
+  end
+  
 end
