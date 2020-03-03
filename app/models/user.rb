@@ -9,4 +9,19 @@ class User < ApplicationRecord
       "#{self.first_name} #{self.last_name}"
     end
   end
+
+  def self.from_fb_omniauth(auth_info)
+    # It looks like I have access to the Facebook image; I should use that as a stretch goal.
+
+    where(email: auth_info["email"]).first_or_initialize do |user|
+      user.email = auth_info["email"]
+      user.password = SecureRandom.hex
+
+      split_name = auth_info["name"].split(" ")
+
+      user.first_name = split_name.first
+      user.last_name = split_name.last
+      user.username = split_name.join(".").downcase
+    end
+  end
 end
