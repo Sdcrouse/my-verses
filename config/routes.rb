@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
 
-  resources :verse_references
+  resources :verse_references, only: :index
 
   get '/signup', to: 'users#new'
   resources :users, except: [:index, :new]
