@@ -11,8 +11,10 @@ class ApplicationController < ActionController::Base
 
   private
 
-    def authorization_error_and_redirect
-      flash[:error] = "You are not authorized to access this page."
-      redirect_to root_path
+    def user_must_be_logged_in
+      unless logged_in?
+        flash[:error] = "You must be logged in to view this page."
+        redirect_to root_path
+      end
     end
 end

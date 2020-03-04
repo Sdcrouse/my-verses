@@ -23,11 +23,8 @@ class UsersController < ApplicationController
   end
 
   def show
-    if logged_in?
-      @user = User.find_by(id: params[:id])
-    else
-      authorization_error_and_redirect
-    end
+    user_must_be_logged_in
+    @user = User.find_by(id: params[:id])
   end
 
   private
