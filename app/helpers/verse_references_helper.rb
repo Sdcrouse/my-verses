@@ -11,7 +11,7 @@ module VerseReferencesHelper
       reference_notation += ":#{ref.verse_start}"
 
       if ref.verse_end
-        reference_notation += "-#{verse_end}"
+        reference_notation += "-#{ref.verse_end}"
       end
     end
 
