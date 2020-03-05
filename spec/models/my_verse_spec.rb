@@ -11,6 +11,8 @@ RSpec.describe MyVerse, type: :model do
     }
   end
 
+  let(:no_user_or_reference_ids) { valid_myverse.except(:verse_reference_id, :user_id) }
+
   it "has a version, verse_text, reason_liked, verse_reference_id, and user_id, and is valid" do
     my_verse = MyVerse.new(valid_myverse)
 
@@ -40,4 +42,16 @@ RSpec.describe MyVerse, type: :model do
     )
   end
 
+  it "belongs to a User and a VerseReference" do
+    moses = User.create(username: "moses", email: "lawgiver@israel.com", password: "tencommandments")
+    ref = VerseReference.create(book: "Genesis", chapter: "1", verse_start: "1")
+
+    myverse_with_user_and_reference = no_user_or_reference_ids.merge(user: moses, verse_reference: ref)
+    moses_myverse = MyVerse.create(myverse_with_user_and_reference)
+
+    expect(moses_myverse).to be_valid
+    expect(moses_myverse.user).to eq(moses)
+    expect(moses_myverse.verse_reference).to eq(ref)
+  end
+  
 end
