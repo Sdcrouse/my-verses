@@ -36,7 +36,7 @@ RSpec.describe MyVerse, type: :model do
     expect(invalid_myverse).to_not be_valid
     expect(invalid_myverse.errors.full_messages).to include(
       "Version can't be blank",
-      "Verse_text can't be blank"
+      "Verse text can't be blank"
     )
   end
 
