@@ -1,0 +1,2 @@
+class MyVerse < ApplicationRecord
+end

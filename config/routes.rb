@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :my_verses
+  
   get '/auth/facebook/callback' => 'sessions#fb_login'
 
   get '/login', to: 'sessions#new'

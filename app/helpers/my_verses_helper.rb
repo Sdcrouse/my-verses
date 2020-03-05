@@ -1,0 +1,2 @@
+module MyVersesHelper
+end
