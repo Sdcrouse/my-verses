@@ -10,7 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_18_082536) do
+ActiveRecord::Schema.define(version: 2020_03_05_002805) do
+
+  create_table "my_verses", force: :cascade do |t|
+    t.string "version"
+    t.text "verse_text"
+    t.text "reason_liked"
+    t.integer "user_id"
+    t.integer "verse_reference_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "username"
