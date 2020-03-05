@@ -29,4 +29,15 @@ RSpec.describe MyVerse, type: :model do
     expect(MyVerse.new(missing_reason_liked)).to be_valid
   end
 
+  it "is invalid without a version and/or verse_text" do
+    missing_version_and_text = valid_myverse.except(:version, :verse_text)
+    invalid_myverse = MyVerse.new(missing_version_and_text)
+
+    expect(invalid_myverse).to_not be_valid
+    expect(invalid_myverse.errors.full_messages).to include(
+      "Version can't be blank",
+      "Verse_text can't be blank"
+    )
+  end
+
 end
