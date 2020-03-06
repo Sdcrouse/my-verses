@@ -47,4 +47,13 @@ RSpec.describe MyVerse, type: :model do
     )
   end
 
+  it "is invalid if it does not belong to a User or a VerseReference" do
+    no_user_or_reference = MyVerse.new(valid_myverse.except(:verse_reference, :user))
+    
+    expect(no_user_or_reference).to_not be_valid
+    expect(no_user_or_reference.errors.full_messages).to include(
+      "User must exist",
+      "Verse reference must exist"
+    )
+  end
 end
