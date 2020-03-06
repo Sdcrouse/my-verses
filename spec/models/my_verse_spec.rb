@@ -1,13 +1,21 @@
 require 'rails_helper'
 
 RSpec.describe MyVerse, type: :model do
+  let(:moses) do
+    User.create(username: "moses", email: "lawgiver@israel.com", password: "tencommandments")
+  end
+
+  let(:first_verse_reference) do 
+    VerseReference.create(book: "Genesis", chapter: "1", verse_start: "1")
+  end
+
   let(:valid_myverse) do
     {
       version: "NIV",
       verse_text: "In the beginning God created the heavens and the earth.",
       reason_liked: "This is the verse that starts it all!",
-      verse_reference_id: 1,
-      user_id: 1
+      verse_reference_id: first_verse_reference.id,
+      user_id: moses.id
     }
   end
 
