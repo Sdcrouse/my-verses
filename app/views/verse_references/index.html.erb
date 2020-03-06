@@ -1,7 +1,11 @@
 <h1>Verse References:</h1>
 
-<ul>
-  <% @verse_references.each do |ref| %>
-    <li><%= display_reference(ref) %></li>
-  <% end %>
-</ul>
+<% if @verse_references.empty? %>
+  <h3 class="no-references">There are no Verse References yet. Feel free to add one by creating a new MyVerse!</h3>
+<% else %>
+  <ul>
+    <% @verse_references.each do |ref| %>
+      <li><%= display_reference(ref) %></li>
+    <% end %>
+  </ul>
+<% end %>
