@@ -14,7 +14,7 @@
  *= require_self
  */
 
-.redstar, .error-heading {
+.redstar, .error-heading, .no-my_verses {
   color: red;
 }
 
