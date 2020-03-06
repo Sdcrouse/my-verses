@@ -1,5 +1,7 @@
 class User < ApplicationRecord
   has_secure_password
+  has_many :my_verses
+  has_many :verse_references, through: :my_verses
 
   validates :username, presence: true
   validates :email, presence: true, uniqueness: true

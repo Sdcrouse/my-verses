@@ -1,4 +1,7 @@
 class VerseReference < ApplicationRecord
+  has_many :my_verses
+  has_many :users, through: :my_verses
+
   validates :book, presence: true
 
   validates :chapter, presence: true, inclusion: { within: "1".."150", 
