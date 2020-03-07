@@ -93,3 +93,36 @@ MyVerse.create(
   reason_liked: "It is a good psalm of praise, and it is the shortest chapter in the Bible (only two verses).",
   version: "NIV", user: newguy, verse_reference: shortest_psalm
 )
+
+# Proverbs 3:5-6
+MyVerse.create( # Note: This is worded a little differently from when I first learned it; evidently, the NIV has changed over the years.
+  verse_text: "Trust in the LORD with all your heart and lean not on your own understanding; 
+               in all your ways submit to him, and He will make your paths straight.",
+  reason_liked: "This is one of my all-time favorite verses, a classic reminder to always trust our God.",
+  version: "NIV", user: newguy, verse_reference: trust_in_god
+)
+MyVerse.create(
+  verse_text: "Trust in the LORD with all thine heart; and lean not unto thine own understanding.
+               In all thy ways acknowledge him, and he shall direct thy paths.",
+  reason_liked: "The Lord has given me the things I need: the sun and rain and an appleseed. So, why NOT trust in Him?",
+  version: "KJV", user: johnny, verse_reference: trust_in_god
+)
+
+# Proverbs 19:21
+MyVerse.create(
+  verse_text: "Many are the plans in the mind of a man, but it is the purpose of the LORD that will stand.",
+  reason_liked: "This has proven true for me plenty of times. Who but the Lord would have thought that I would be a fisherman one day, and a 'fisher of men' the next?",
+  version: "ESV", user: peter, verse_reference: plans_in_heart
+)
+MyVerse.create(
+  verse_text: "Many are the plans in the mind of a man, but it is the purpose of the LORD that will stand.",
+  reason_liked: "I have lost count as to how many times this has proven true for me!
+                 Once, I tried to preach in one part of the earth, only to be directed in a dream to another.
+                 And more importantly, I was once one of the worst persecutors of the brothers, 
+                 only to encounter Jesus himself and actually LEAD them!",
+  version: "ESV", user: paul, verse_reference: plans_in_heart
+)
+MyVerse.create(
+  verse_text: "Many are the plans in a person's heart, but it is the LORD's purpose that prevails.",
+  reason_liked: "My life in a nutshell. Need I say more?", version: "NIV", user: newguy, verse_reference: plans_in_heart
+)
