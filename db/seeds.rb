@@ -43,8 +43,7 @@ psalm100 = VerseReference.find_or_create_by(book: "Psalm", chapter: "100")
 love_chapter = VerseReference.find_or_create_by(book: "1 Corinthians", chapter: "13", verse_start: "4", verse_end: "8")
 through_a_glass = VerseReference.find_or_create_by(book: "1 Corinthians", chapter: "13", verse_start: "12")
 
-# MyVerses:
-
+# MyVerses
 # John 3:16
 MyVerse.create(
   verse_text: "For God so loved the world, that he gave his only begotten Son, that whosoever believeth in him should not perish, but have everlasting life.",
@@ -68,4 +67,29 @@ MyVerse.create(
   verse_text: "For God so loved the world that he gave his one and only Son, that whoever believes in him shall not perish but have eternal life.",
   reason_liked: "This is my hope summed up in one verse.",
   version: "NIV", user: newguy, verse_reference: john316
+)
+
+# Genesis 1:1
+MyVerse.create(
+  verse_text: "In the beginning, God created the heavens and the earth",
+  reason_liked: "This are the words that started it all - the creation of the earth itself.",
+  version: "ESV", user: peter, verse_reference: gen1v1
+)
+MyVerse.create(
+  verse_text: "In the beginning, God created the heavens and the earth",
+  reason_liked: "For many reasons, this is the verse that I like to use to introduce Gentiles to the Holy Scriptures.",
+  version: "ESV", user: paul, verse_reference: gen1v1
+)
+MyVerse.create(
+  verse_text: "In the beginning God created the heavens and the earth.",
+  reason_liked: "This is the first Bible verse I ever read, and the one that introduced me to God.",
+  version: "NIV", user: newguy, verse_reference: gen1v1
+)
+
+# Psalm 117
+MyVerse.create(
+  verse_text: "Praise the LORD, all you nations; extol him, all you peoples.
+               For great is his love toward us, and the faithfulness of the LORD endures forever. Praise the LORD.",
+  reason_liked: "It is a good psalm of praise, and it is the shortest chapter in the Bible (only two verses).",
+  version: "NIV", user: newguy, verse_reference: shortest_psalm
 )
