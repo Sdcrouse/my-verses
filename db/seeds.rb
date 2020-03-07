@@ -126,3 +126,21 @@ MyVerse.create(
   verse_text: "Many are the plans in a person's heart, but it is the LORD's purpose that prevails.",
   reason_liked: "My life in a nutshell. Need I say more?", version: "NIV", user: newguy, verse_reference: plans_in_heart
 )
+
+# Proverbs 15:1
+MyVerse.create(
+  verse_text: "A gentle answer turns away wrath, but a harsh word stirs up anger.",
+  reason_liked: "Alas, this is a lesson I have had to learn many times. 
+                 James and John may be the 'Sons of Thunder', but I have quite the temper, too!",
+  version: "NIV", user: peter, verse_reference: gentle_answer
+)
+
+# Psalm 100
+MyVerse.create(
+  verse_text: "A Psalm of thanksgiving. 
+               Make a joyful noise to the LORD, all the earth. Serve the LORD with gladness; come into His presence with joyful songs.
+               Know that the LORD is God. It is He who made us, and we are His; we are His people, and the sheep of His pasture.
+               Enter His gates with thanksgiving and His courts with praise; give thanks to Him and bless His name.
+               For the LORD is good, and His loving devotion endures forever; His faithfulness continues to all generations.",
+  version: "Berean Study Bible", user: newguy, verse_reference: psalm100
+)
