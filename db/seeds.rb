@@ -31,3 +31,15 @@ peter = User.create(
 
 newguy = User.create(username: "NewConvert", email: "loremipsum@dolorsit.amet", password: "pw")
 
+# VerseReferences 
+# (Note: Here, I used #find_or_create_by because I already had some of these VerseReferences in my database.)
+john316 = VerseReference.find_or_create_by(book: "John", chapter: "3", verse_start: "16")
+gen1v1 = VerseReference.find_or_create_by(book: "Genesis", chapter: "1", verse_start: "1")
+shortest_psalm = VerseReference.find_or_create_by(book: "Psalm", chapter: "117")
+trust_in_god = VerseReference.find_or_create_by(book: "Proverbs", chapter: "3", verse_start: "5", verse_end: "6")
+plans_in_heart = VerseReference.find_or_create_by(book: "Proverbs", chapter: "19", verse_start: "21")
+gentle_answer = VerseReference.find_or_create_by(book: "Proverbs", chapter: "15", verse_start: "1")
+psalm100 = VerseReference.find_or_create_by(book: "Psalm", chapter: "100")
+love_chapter = VerseReference.find_or_create_by(book: "1 Corinthians", chapter: "13", verse_start: "4", verse_end: "8")
+through_a_glass = VerseReference.find_or_create_by(book: "1 Corinthians", chapter: "13", verse_start: "12")
+
