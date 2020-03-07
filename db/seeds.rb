@@ -140,3 +140,36 @@ MyVerse.create(
   For the LORD is good, and His loving devotion endures forever; His faithfulness continues to all generations.",
   version: "Berean Study Bible", user: newguy, verse_reference: psalm100
 )
+
+# 1 Corinthians 13:4-8
+MyVerse.create(
+  verse_text: "Love is patient, love is kind. It does not envy, it does not boast, it is not proud.
+  It is not rude, it is not self-seeking, it is not easily angered, it keeps no record of wrongs.
+  Love does not delight in evil but rejoices with the truth.
+  It always protects, always trusts, always hopes, always perseveres. Love never fails.",
+  reason_liked: "This is a translation of a part of one of my letters to the church at Corinth.
+  I know in the Lord that these words about love are true, for He IS love!",
+  version: "NIV", user: paul, verse_reference: love_chapter
+)
+
+# 1 Corinthians 13:12
+MyVerse.create(
+  verse_text: "For now we see only a reflection as in a mirror; then we shall see face to face.
+  Now I know in part; then I shall know fully, even as I am fully known.",
+  reason_liked: "This is from one of my letters to the Corinthian church.
+  I am looking forward to seeing my lord face to face and knowing everything in full.",
+  version: "NIV", user: paul, verse_reference: through_a_glass
+)
+MyVerse.create(
+  verse_text: "For now we see through a glass, darkly; but then face to face: now I know in part; but then shall I know even as also I am known.",
+  reason_liked: "Admittedly, some of our brother Paul's words are difficult to understand.
+  But that is likely because - as he himself said - we only know in part. But praise be to the One who knows all!",
+  version: "KJV", user: peter, verse_reference: through_a_glass
+)
+MyVerse.create(
+  verse_text: "For now we see in a mirror dimly, but then face to face.
+  Now I know in part; then I shall know fully, even as I have been fully known.",
+  reason_liked: "This, I think, is my favorite MyVerse. I can rest in the Lord, knowing that it is OK to not know everything yet.
+  I look forward to one day fully understanding my life and God's plan for the world.",
+  version: "ESV", user: newguy, verse_reference: through_a_glass
+)
