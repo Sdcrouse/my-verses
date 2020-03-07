@@ -25,7 +25,7 @@ peter = User.create(
   username: "simonpeter",
   email: "s.peter@gmail.com",
   first_name: "Simon",
-  last_name: "Peter"
+  last_name: "Peter",
   password: "fishersofmen"
 )
 
@@ -43,3 +43,29 @@ psalm100 = VerseReference.find_or_create_by(book: "Psalm", chapter: "100")
 love_chapter = VerseReference.find_or_create_by(book: "1 Corinthians", chapter: "13", verse_start: "4", verse_end: "8")
 through_a_glass = VerseReference.find_or_create_by(book: "1 Corinthians", chapter: "13", verse_start: "12")
 
+# MyVerses:
+
+# John 3:16
+MyVerse.create(
+  verse_text: "For God so loved the world, that he gave his only begotten Son, that whosoever believeth in him should not perish, but have everlasting life.",
+  reason_liked: "This one verse sums up the ENTIRE message of Christianity. And it was spoken by Christ himself, no less!",
+  version: "KJV", user: johnny, verse_reference: john316
+)
+MyVerse.create(
+  verse_text: "For God so loved the world, that he gave his only begotten Son, that whosoever believeth in him should not perish, but have everlasting life.",
+  reason_liked: "These words spoken by our Lord indicate at least three things: 
+                 that Jesus is the prophesied Messiah, 
+                 that life after death will happen for those who believe, 
+                 and that this promise - and God's love - extends to Jews AND Gentiles alike.",
+  version: "KJV", user: paul, verse_reference: john316
+)
+MyVerse.create(
+  verse_text: "For God so loved the world, that he gave his only begotten Son, that whosoever believeth in him should not perish, but have everlasting life.",
+  reason_liked: "This is the Gospel - the Good News - that can and should be shouted from the rooftops!",
+  version: "KJV", user: peter, verse_reference: john316
+)
+MyVerse.create(
+  verse_text: "For God so loved the world that he gave his one and only Son, that whoever believes in him shall not perish but have eternal life.",
+  reason_liked: "This is my hope summed up in one verse.",
+  version: "NIV", user: newguy, verse_reference: john316
+)
