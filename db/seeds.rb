@@ -52,10 +52,8 @@ MyVerse.create(
 )
 MyVerse.create(
   verse_text: "For God so loved the world, that he gave his only begotten Son, that whosoever believeth in him should not perish, but have everlasting life.",
-  reason_liked: "These words spoken by our Lord indicate at least three things: 
-                 that Jesus is the prophesied Messiah, 
-                 that life after death will happen for those who believe, 
-                 and that this promise - and God's love - extends to Jews AND Gentiles alike.",
+  reason_liked: "These words spoken by our Lord indicate at least three things: that Jesus is the prophesied Messiah,
+  that life after death will happen for those who believe, and that this promise - and God's love - extends to Jews AND Gentiles alike.",
   version: "KJV", user: paul, verse_reference: john316
 )
 MyVerse.create(
@@ -89,21 +87,21 @@ MyVerse.create(
 # Psalm 117
 MyVerse.create(
   verse_text: "Praise the LORD, all you nations; extol him, all you peoples.
-               For great is his love toward us, and the faithfulness of the LORD endures forever. Praise the LORD.",
+  For great is his love toward us, and the faithfulness of the LORD endures forever. Praise the LORD.",
   reason_liked: "It is a good psalm of praise, and it is the shortest chapter in the Bible (only two verses).",
   version: "NIV", user: newguy, verse_reference: shortest_psalm
 )
 
 # Proverbs 3:5-6
 MyVerse.create( # Note: This is worded a little differently from when I first learned it; evidently, the NIV has changed over the years.
-  verse_text: "Trust in the LORD with all your heart and lean not on your own understanding; 
-               in all your ways submit to him, and He will make your paths straight.",
+  verse_text: "Trust in the LORD with all your heart and lean not on your own understanding;
+  in all your ways submit to him, and He will make your paths straight.",
   reason_liked: "This is one of my all-time favorite verses, a classic reminder to always trust our God.",
   version: "NIV", user: newguy, verse_reference: trust_in_god
 )
 MyVerse.create(
   verse_text: "Trust in the LORD with all thine heart; and lean not unto thine own understanding.
-               In all thy ways acknowledge him, and he shall direct thy paths.",
+  In all thy ways acknowledge him, and he shall direct thy paths.",
   reason_liked: "The Lord has given me the things I need: the sun and rain and an appleseed. So, why NOT trust in Him?",
   version: "KJV", user: johnny, verse_reference: trust_in_god
 )
@@ -117,9 +115,8 @@ MyVerse.create(
 MyVerse.create(
   verse_text: "Many are the plans in the mind of a man, but it is the purpose of the LORD that will stand.",
   reason_liked: "I have lost count as to how many times this has proven true for me!
-                 Once, I tried to preach in one part of the earth, only to be directed in a dream to another.
-                 And more importantly, I was once one of the worst persecutors of the brothers, 
-                 only to encounter Jesus himself and actually LEAD them!",
+  Once, I tried to preach in one part of the earth, only to be directed in a dream to another.
+  And more importantly, I was once one of the worst persecutors of the brothers, only to encounter Jesus himself and actually LEAD them!",
   version: "ESV", user: paul, verse_reference: plans_in_heart
 )
 MyVerse.create(
@@ -130,17 +127,16 @@ MyVerse.create(
 # Proverbs 15:1
 MyVerse.create(
   verse_text: "A gentle answer turns away wrath, but a harsh word stirs up anger.",
-  reason_liked: "Alas, this is a lesson I have had to learn many times. 
-                 James and John may be the 'Sons of Thunder', but I have quite the temper, too!",
+  reason_liked: "Alas, this is a lesson I have had to learn many times. James and John may be the 'Sons of Thunder', but I have quite the temper, too!",
   version: "NIV", user: peter, verse_reference: gentle_answer
 )
 
 # Psalm 100
 MyVerse.create(
   verse_text: "A Psalm of thanksgiving. 
-               Make a joyful noise to the LORD, all the earth. Serve the LORD with gladness; come into His presence with joyful songs.
-               Know that the LORD is God. It is He who made us, and we are His; we are His people, and the sheep of His pasture.
-               Enter His gates with thanksgiving and His courts with praise; give thanks to Him and bless His name.
-               For the LORD is good, and His loving devotion endures forever; His faithfulness continues to all generations.",
+  Make a joyful noise to the LORD, all the earth. Serve the LORD with gladness; come into His presence with joyful songs.
+  Know that the LORD is God. It is He who made us, and we are His; we are His people, and the sheep of His pasture.
+  Enter His gates with thanksgiving and His courts with praise; give thanks to Him and bless His name.
+  For the LORD is good, and His loving devotion endures forever; His faithfulness continues to all generations.",
   version: "Berean Study Bible", user: newguy, verse_reference: psalm100
 )
