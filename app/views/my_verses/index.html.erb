@@ -2,4 +2,12 @@
 
 <% if @my_verses.empty? %>
   <h3 class="no-my_verses">It looks like nobody has created a MyVerse yet. You can be the first!</h3>
+<% else %>
+  <ul>
+    <% @my_verses.each do |mv| %><!-- This should be refactored with a partial and/or helper. -->
+      <li>
+        <%= display_reference(mv.verse_reference) %>, posted by <%= link_to(mv.user.username, user_path(mv.user)) %>
+      </li>
+    <% end %>
+  </ul>
 <% end %>
