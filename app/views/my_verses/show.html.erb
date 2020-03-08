@@ -1,0 +1,11 @@
+<h1><%= display_reference(@my_verse.verse_reference) %></h1>
+
+<p>"<%= @my_verse.verse_text %>"</p>
+
+<p><strong>Version:</strong> <%= @my_verse.version %></p>
+
+<% if @my_verse.reason_liked %>
+  <p><strong>Reason Liked: </strong><%= @my_verse.reason_liked %></p>
+<% end %>
+
+<p>Posted by <%= link_to(@my_verse.user.username, user_path(@my_verse.user)) %></p>
