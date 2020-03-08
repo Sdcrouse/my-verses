@@ -68,6 +68,16 @@ RSpec.describe User, type: :model do
     )
   end
 
+  it "is invalid with an improperly-formatted email" do
+    invalid_emails = ["lorem.ipsum", "@", "@google.com", "helloWorld@", "invalid email@yahoo.com"]
+
+    invalid_emails.each do |bad_email|
+      user = User.new(valid_user_attributes.merge(email: bad_email))
+      expect(user).to_not be_valid
+      expect(user.errors.full_messages).to include("Email is invalid")
+    end
+  end
+
   it "has a full_name if first and last names are present" do
     user = User.new(valid_user_attributes)
     expect(user.full_name).to eq("Lorem Ipsum")
