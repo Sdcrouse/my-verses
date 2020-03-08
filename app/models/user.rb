@@ -4,7 +4,8 @@ class User < ApplicationRecord
   has_many :verse_references, through: :my_verses
 
   validates :username, presence: true
-  validates :email, presence: true, uniqueness: true
+  validates :email, presence: true, uniqueness: true, format: { with: URI::MailTo::EMAIL_REGEXP }
+  # Here's where I got the format validation: https://stackoverflow.com/questions/38611405/email-validation-in-ruby-on-rails#answer-49925333
 
   def full_name
     if self.first_name.present? && self.last_name.present?
