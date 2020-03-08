@@ -4,7 +4,7 @@
 
 <% if @user.errors.any? %>
   <h4 class="error-heading">
-    The following <%= pluralize(@user.errors.count, "error") %> prevented you from signing up:
+    <%= pluralize(@user.errors.count, "error") %> prevented you from signing up:
   </h4>
 
   <ol>
