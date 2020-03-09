@@ -8,4 +8,4 @@
   <p><strong>Reason Liked: </strong><%= @my_verse.reason_liked %></p>
 <% end %>
 
-<p>Posted by <%= link_to(@my_verse.user.username, user_path(@my_verse.user)) %></p>
+<p>Posted by <%= link_to(@my_verse.user_name, user_path(@my_verse.user)) %></p>

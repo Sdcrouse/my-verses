@@ -4,4 +4,8 @@ class MyVerse < ApplicationRecord
 
   validates :version, presence: true
   validates :verse_text, presence: true
+
+  def user_name
+    self.user.username
+  end
 end
