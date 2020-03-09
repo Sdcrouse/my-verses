@@ -15,6 +15,7 @@
 
       <% if logged_in? %>
         <%= link_to "Your Profile", user_path(current_user) %>
+        <%= link_to "New MyVerse", new_my_verse_path %>
         <%= link_to "All MyVerses", my_verses_path %>
         <%= link_to "Verse References", verse_references_path %>
         <%= link_to "Log Out", logout_path, :method => :delete %>
