@@ -25,6 +25,7 @@ class UsersController < ApplicationController
   def show
     user_must_be_logged_in
     @user = User.find_by(id: params[:id])
+    @my_verses = @user.my_verses
   end
 
   private

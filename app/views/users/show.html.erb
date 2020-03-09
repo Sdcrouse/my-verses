@@ -11,3 +11,17 @@
 <% else %>
   <h1><%= @user.username %>'s Profile</h1>
 <% end %>
+
+<h2>MyVerses:</h2>
+
+<% if @my_verses.empty? %>
+  <p>No MyVerses yet.</p>
+<% else %>
+  <ul>
+    <% @my_verses.each do |mv| %><!-- This should be refactored with a partial and/or helper. -->
+      <li>
+        <%= link_to(display_reference(mv.verse_reference), my_verse_path(mv)) %>
+      </li>
+    <% end %>
+  </ul>
+<% end %>
