@@ -6,7 +6,8 @@
   <ul>
     <% @my_verses.each do |mv| %><!-- This should be refactored with a partial and/or helper. -->
       <li>
-        <%= display_reference(mv.verse_reference) %>, posted by <%= link_to(mv.user_name, user_path(mv.user)) %>
+        <%= link_to(display_reference(mv.verse_reference), my_verse_path(mv)) %>, 
+        posted by <%= link_to(mv.user_name, user_path(mv.user)) %>
       </li>
     <% end %>
   </ul>
