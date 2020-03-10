@@ -1,8 +1,10 @@
 class VerseReference < ApplicationRecord
   has_many :my_verses
   has_many :users, through: :my_verses
+  accepts_nested_attributes_for :my_verses
 
   validates :book, presence: true
+  # Stretch goal idea: Make a BOOKS constant instead, then use it to create <option>s in a <datalist> on the MyVerse form.
 
   validates :chapter, presence: true, inclusion: { within: "1".."150", 
     message: "must be a number between 1 and 150" }
