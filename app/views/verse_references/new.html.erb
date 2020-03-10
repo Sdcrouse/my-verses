@@ -1,5 +1,27 @@
 <h1>Create a new MyVerse here!</h1>
 
+<h5><span class="redstar">*</span> Required field</h5>
+
 <%= form_for(@verse_reference) do |f| %>
+  <p>
+    <span class="redstar">*</span>
+    <%= f.label :book %>
+    <%= f.text_field :book, required: true %>
+  </p>
+  <p>
+    <span class="redstar">*</span>
+    <%= f.label :chapter %>
+    <%= f.number_field :chapter, within: 1..150, required: true %>
+  </p>
+  <p>
+    <%= f.label :verse_start, "Start of Verse" %>
+    <%= f.number_field :verse_start, within: 1..176 %>
+  </p>
+  <p>
+    <%= f.label :verse_end, "End of Verse" %>
+    <%= f.number_field :verse_end, within: 2..176 %>
+    <!-- 2 is the minimum because verse_end > verse_start. -->
+  </p>
+
   <%= f.submit "Create MyVerse" %>
 <% end %>
