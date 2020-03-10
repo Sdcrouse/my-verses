@@ -23,5 +23,9 @@
     <!-- 2 is the minimum because verse_end > verse_start. -->
   </p>
 
+  <%= f.fields_for :my_verses do |mv_form| %>
+    <%= mv_form.hidden_field :user_id, :value => current_user.id %>
+  <% end %>
+
   <%= f.submit "Create MyVerse" %>
 <% end %>

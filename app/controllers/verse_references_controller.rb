@@ -9,9 +9,11 @@ class VerseReferencesController < ApplicationController
 
   def new
     @verse_reference = VerseReference.new
+    @verse_reference.my_verses.build
   end
 
   def create
     binding.pry
+    # Note: The hidden_field can be hacked, so make sure that the user_id is the same as current_user.id.
   end
 end
