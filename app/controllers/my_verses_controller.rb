@@ -8,8 +8,4 @@ class MyVersesController < ApplicationController
   def show
     @my_verse = MyVerse.find(params[:id])
   end
-
-  def new
-    @my_verse = MyVerse.new
-  end
 end

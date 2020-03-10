@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  resources :my_verses
+  get "/my_verses/new", to: "verse_references#new", as: "new_my_verse"
+  # Note: I'm setting my routes up this way so that I can use #accepts_nested_attributes_for on the VerseReference model.
+  resources :my_verses, except: [:new]
   
   get '/auth/facebook/callback' => 'sessions#fb_login'
 
