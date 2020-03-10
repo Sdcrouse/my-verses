@@ -4,7 +4,7 @@
 
 <p><strong>Version:</strong> <%= @my_verse.version %></p>
 
-<% if @my_verse.reason_liked %>
+<% if @my_verse.reason_liked.present? %>
   <p><strong>Reason Liked: </strong><%= @my_verse.reason_liked %></p>
 <% end %>
 
