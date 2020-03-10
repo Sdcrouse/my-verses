@@ -25,6 +25,20 @@
 
   <%= f.fields_for :my_verses do |mv_form| %>
     <%= mv_form.hidden_field :user_id, :value => current_user.id %>
+    <p>
+      <span class="redstar">*</span>
+      <%= mv_form.label :version %>
+      <%= mv_form.text_field :version, required: true %>
+    </p>
+    <p>
+      <span class="redstar">*</span> <!-- Wait, why is this required? I may un-require it later. -->
+      <%= mv_form.label :verse_text %>
+      <%= mv_form.text_area :verse_text, required: true %>
+    </p>
+    <p>
+      <%= mv_form.label :reason_liked, "Why do you like this Bible verse?" %>
+      <%= mv_form.text_area :reason_liked %>
+    </p>
   <% end %>
 
   <%= f.submit "Create MyVerse" %>
