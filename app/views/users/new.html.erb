@@ -1,18 +1,7 @@
 <h1>Sign up here!</h1>
 
-<h5><span class="redstar">*</span> Required field</h5>
-
-<% if @user.errors.any? %>
-  <h4 class="error-heading">
-    <%= pluralize(@user.errors.count, "error") %> prevented you from signing up:
-  </h4>
-
-  <ol>
-    <% @user.errors.full_messages.each do |message| %>
-      <li><%= message %></li>
-    <% end %>
-  </ol>
-<% end %>
+<%= render partial: "shared/red_star_and_errors",
+    locals: {resource: @user, attempted_action: "signing up"} %>
 
 <%= form_for(@user) do |f| %>
   <p>

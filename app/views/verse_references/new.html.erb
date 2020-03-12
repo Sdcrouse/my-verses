@@ -1,18 +1,7 @@
 <h1>Create a new MyVerse here!</h1>
 
-<h5><span class="redstar">*</span> Required field</h5>
-
-<% if @verse_reference.errors.any? %>
-  <h4 class="error-heading">
-    <%= pluralize(@verse_reference.errors.count, "error") %> prevented you from creating a new MyVerse:
-  </h4>
-
-  <ol>
-    <% @verse_reference.errors.full_messages.each do |message| %>
-      <li><%= message %></li>
-    <% end %>
-  </ol>
-<% end %>
+<%= render partial: "shared/red_star_and_errors",
+    locals: {resource: @verse_reference, attempted_action: "creating a new MyVerse"} %>
 
 <%= form_for(@verse_reference) do |f| %>
   <p>
