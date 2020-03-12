@@ -19,6 +19,7 @@ class VerseReferencesController < ApplicationController
     check_user_id_of(myverse) and return
 
     if @verse_reference.save
+      flash[:success] = "Success! Here is your new MyVerse, #{current_user.username}:"
       redirect_to my_verse_path(myverse)
     else
       # Note: Since the form creates a VerseReference AND a MyVerse, the myverse error messages look a bit weird.
