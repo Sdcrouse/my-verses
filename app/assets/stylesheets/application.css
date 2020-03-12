@@ -18,7 +18,7 @@
   color: red;
 }
 
-.field_with_errors input {
+.field_with_errors input, .field_with_errors textarea {
   background-color: red;
   color: white;
 }
