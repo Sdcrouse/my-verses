@@ -2,6 +2,18 @@
 
 <h5><span class="redstar">*</span> Required field</h5>
 
+<% if @verse_reference.errors.any? %>
+  <h4 class="error-heading">
+    <%= pluralize(@verse_reference.errors.count, "error") %> prevented you from creating a new MyVerse:
+  </h4>
+
+  <ol>
+    <% @verse_reference.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ol>
+<% end %>
+
 <%= form_for(@verse_reference) do |f| %>
   <p>
     <span class="redstar">*</span>

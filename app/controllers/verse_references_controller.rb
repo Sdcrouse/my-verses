@@ -24,7 +24,6 @@ class VerseReferencesController < ApplicationController
     else
       # Note: Since the form creates a VerseReference AND a MyVerse, the myverse error messages look a bit weird.
       # I can try to adjust that later as a stretch goal.
-      flash[:error] = @verse_reference.errors.full_messages
       render :new
     end
   end
