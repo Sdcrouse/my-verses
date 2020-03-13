@@ -1,6 +1,8 @@
 <h1>Sign up here!</h1>
 
-<%= render partial: "shared/red_star_and_errors",
+<%= render partial: "shared/required_field" %>
+
+<%= render partial: "shared/validation_errors",
     locals: {resource: @user, attempted_action: "signing up"} %>
 
 <%= form_for(@user) do |f| %>

@@ -1,6 +1,6 @@
 <h1>Returning users, please log in here.</h1>
 
-<h5><span class="redstar">*</span> Required field</h5>
+<%= render partial: "shared/required_field" %>
 
 <%= form_tag login_path do %>
   <!-- In this case, #form_for doesn't create the .field_with_errors class when a User can't log in.

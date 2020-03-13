@@ -1,6 +1,8 @@
 <h1>Create a new MyVerse here!</h1>
 
-<%= render partial: "shared/red_star_and_errors",
+<%= render partial: "shared/required_field" %>
+
+<%= render partial: "shared/validation_errors",
     locals: {resource: @verse_reference, attempted_action: "creating a new MyVerse"} %>
 
 <%= form_for(@verse_reference) do |f| %>
