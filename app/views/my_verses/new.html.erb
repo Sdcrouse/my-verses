@@ -6,6 +6,21 @@
     locals: {resource: @my_verse, attempted_action: "creating a new MyVerse"} %>
 
 <%= form_for(@my_verse) do |f| %>
+  <%= f.hidden_field :user_id, :value => current_user.id %>
+  <p>
+    <span class="redstar">*</span>
+    <%= f.label :version %>
+    <%= f.text_field :version, required: true %>
+  </p>
+  <p>
+    <span class="redstar">*</span>
+    <%= f.label :verse_text %>
+    <%= f.text_area :verse_text, required: true %>
+  </p>
+  <p>
+    <%= f.label :reason_liked, "Why do you like this Bible verse?" %>
+    <%= f.text_area :reason_liked %>
+  </p>
   
   <%= f.submit "Create MyVerse" %>
 <% end %>
