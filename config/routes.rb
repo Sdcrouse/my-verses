@@ -1,7 +1,5 @@
 Rails.application.routes.draw do
-  get "/my_verses/new", to: "verse_references#new", as: "new_my_verse"
-  # Note: I'm setting my routes up this way so that I can use #accepts_nested_attributes_for on the VerseReference model.
-  resources :my_verses, except: [:new, :create]
+  resources :my_verses
   
   get '/auth/facebook/callback' => 'sessions#fb_login'
 
@@ -9,7 +7,7 @@ Rails.application.routes.draw do
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
 
-  resources :verse_references, only: [:index, :create]
+  resources :verse_references, only: :index
 
   get '/signup', to: 'users#new'
   resources :users, except: [:index, :new]
