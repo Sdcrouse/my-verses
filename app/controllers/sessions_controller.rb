@@ -13,7 +13,7 @@ class SessionsController < ApplicationController
     if @user.try(:authenticate, params[:password])
       login_user(@user)
     else
-      flash[:error] = "Invalid email and/or password."
+      flash.now[:error] = "Invalid email and/or password."
       render :new
     end
   end
