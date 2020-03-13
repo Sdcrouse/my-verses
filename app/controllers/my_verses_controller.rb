@@ -14,6 +14,10 @@ class MyVersesController < ApplicationController
     @my_verse.build_verse_reference
   end
 
+  def create
+    raise params.inspect
+  end
+
   def edit
     @my_verse = MyVerse.find(params[:id])
     @verse_reference = @my_verse.verse_reference

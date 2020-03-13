@@ -1,0 +1,9 @@
+<h1>Create a new MyVerse here!</h1>
+
+<%= render partial: "shared/red_star_and_errors",
+    locals: {resource: @my_verse, attempted_action: "creating a new MyVerse"} %>
+
+<%= form_for(@my_verse) do |f| %>
+  
+  <%= f.submit "Create MyVerse" %>
+<% end %>
