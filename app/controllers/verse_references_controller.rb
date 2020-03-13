@@ -7,11 +7,6 @@ class VerseReferencesController < ApplicationController
     @verse_references = VerseReference.all
   end
 
-  def new
-    @verse_reference = VerseReference.new
-    @verse_reference.my_verses.build
-  end
-
   def create
     @verse_reference = VerseReference.new(verse_reference_params)
     myverse = @verse_reference.my_verses.last
