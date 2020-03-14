@@ -7,7 +7,7 @@ module VerseReferencesHelper
 
     reference_notation = "#{ref.book} #{ref.chapter}"
 
-    if ref.verse_start # Not (yet) sure why I don't have to call #present? here.
+    if ref.verse_start.present?
       reference_notation += ":#{ref.verse_start}"
 
       if ref.verse_end.present?
