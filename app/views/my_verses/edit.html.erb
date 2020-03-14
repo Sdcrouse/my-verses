@@ -1,1 +1,8 @@
 <h1>Edit your MyVerse here!</h1>
+
+<%= render "shared/required_field" %>
+
+<%= form_for(@my_verse) do |f| %>
+
+  <%= f.submit "Update MyVerse" %>
+<% end %>

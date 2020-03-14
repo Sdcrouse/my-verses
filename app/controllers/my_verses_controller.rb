@@ -36,6 +36,10 @@ class MyVersesController < ApplicationController
     @verse_reference = @my_verse.verse_reference
   end
 
+  def update
+    binding.pry
+  end
+
   private
     def my_verse_params
       params.require(:my_verse).permit(
