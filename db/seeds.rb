@@ -18,6 +18,8 @@ johnny = User.create(
 paul = User.create(
   username: "pauloftarsus",
   email: "p.apostle@israel.com",
+  first_name: "",
+  last_name: "",
   password: "righteousnessByFaith"
 )
 
@@ -29,19 +31,25 @@ peter = User.create(
   password: "fishersofmen"
 )
 
-newguy = User.create(username: "NewConvert", email: "loremipsum@dolorsit.amet", password: "pw")
+newguy = User.create(
+  username: "NewConvert",
+  first_name: "",
+  last_name: "",
+  email: "loremipsum@dolorsit.amet",
+  password: "pw"
+)
 
 # VerseReferences 
 # (Note: Here, I used #find_or_create_by because I already had some of these VerseReferences in my database.)
-john316 = VerseReference.find_or_create_by(book: "John", chapter: "3", verse_start: "16")
-gen1v1 = VerseReference.find_or_create_by(book: "Genesis", chapter: "1", verse_start: "1")
-shortest_psalm = VerseReference.find_or_create_by(book: "Psalm", chapter: "117")
+john316 = VerseReference.find_or_create_by(book: "John", chapter: "3", verse_start: "16", verse_end: "")
+gen1v1 = VerseReference.find_or_create_by(book: "Genesis", chapter: "1", verse_start: "1", verse_end: "")
+shortest_psalm = VerseReference.find_or_create_by(book: "Psalm", chapter: "117", verse_start: "", verse_end: "")
 trust_in_god = VerseReference.find_or_create_by(book: "Proverbs", chapter: "3", verse_start: "5", verse_end: "6")
-plans_in_heart = VerseReference.find_or_create_by(book: "Proverbs", chapter: "19", verse_start: "21")
-gentle_answer = VerseReference.find_or_create_by(book: "Proverbs", chapter: "15", verse_start: "1")
-psalm100 = VerseReference.find_or_create_by(book: "Psalm", chapter: "100")
+plans_in_heart = VerseReference.find_or_create_by(book: "Proverbs", chapter: "19", verse_start: "21", verse_end: "")
+gentle_answer = VerseReference.find_or_create_by(book: "Proverbs", chapter: "15", verse_start: "1", verse_end: "")
+psalm100 = VerseReference.find_or_create_by(book: "Psalm", chapter: "100", verse_start: "", verse_end: "")
 love_chapter = VerseReference.find_or_create_by(book: "1 Corinthians", chapter: "13", verse_start: "4", verse_end: "8")
-through_a_glass = VerseReference.find_or_create_by(book: "1 Corinthians", chapter: "13", verse_start: "12")
+through_a_glass = VerseReference.find_or_create_by(book: "1 Corinthians", chapter: "13", verse_start: "12", verse_end: "")
 
 # MyVerses
 # John 3:16
@@ -138,7 +146,7 @@ MyVerse.create(
   Know that the LORD is God. It is He who made us, and we are His; we are His people, and the sheep of His pasture.
   Enter His gates with thanksgiving and His courts with praise; give thanks to Him and bless His name.
   For the LORD is good, and His loving devotion endures forever; His faithfulness continues to all generations.",
-  version: "Berean Study Bible", user: newguy, verse_reference: psalm100
+  reason_liked: "", version: "Berean Study Bible", user: newguy, verse_reference: psalm100
 )
 
 # 1 Corinthians 13:4-8
