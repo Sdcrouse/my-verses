@@ -19,6 +19,8 @@ class MyVersesController < ApplicationController
     @my_verse.verse_reference = VerseReference.find_or_initialize_by(verse_reference_params)
     # The line above probably needs to be refactored into a MyVerse method, but I don't yet know how.
     
+    check_myverse_user_id and return
+
     if @my_verse.save
       flash[:success] = "Success! Here is your new MyVerse, #{current_user.username}:"
       redirect_to my_verse_path(@my_verse)
@@ -41,5 +43,12 @@ class MyVersesController < ApplicationController
       params[:my_verse].require(:verse_reference).permit(
         :book, :chapter, :verse_start, :verse_end
       )
+    end
+
+    def check_myverse_user_id
+      if @my_verse.user_id != current_user.id
+        flash.now[:error] = "Impressive hacking, but you're not allowed to write a MyVerse for someone else."
+        render :new
+      end
     end
 end
