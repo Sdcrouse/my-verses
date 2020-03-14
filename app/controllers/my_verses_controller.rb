@@ -24,6 +24,10 @@ class MyVersesController < ApplicationController
     if @my_verse.save
       flash[:success] = "Success! Here is your new MyVerse, #{current_user.username}:"
       redirect_to my_verse_path(@my_verse)
+    else
+      # Note: Since the form creates a MyVerse AND a VerseReference, some of the error messages look a bit weird.
+      # I can try to change those messages later as a stretch goal.
+      render :new
     end
   end
 
