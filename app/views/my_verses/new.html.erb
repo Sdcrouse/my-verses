@@ -6,8 +6,6 @@
     locals: {resource: @my_verse, attempted_action: "creating a new MyVerse"} %>
 
 <%= form_for(@my_verse) do |f| %>
-  <%= f.hidden_field :user_id, :value => current_user.id %>
-
   <%= f.fields_for @my_verse.verse_reference do |vr_form| %>
     <p>
       <span class="redstar">*</span>
