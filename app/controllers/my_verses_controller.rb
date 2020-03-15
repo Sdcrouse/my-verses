@@ -20,6 +20,7 @@ class MyVersesController < ApplicationController
     # The line above probably needs to be refactored into a MyVerse method, but I don't yet know how.
     
     check_myverse_user_id and return
+    redirect_if_myverse_exists and return
 
     if @my_verse.save
       flash[:success] = "Success! Here is your new MyVerse, #{current_user.username}:"
@@ -57,6 +58,15 @@ class MyVersesController < ApplicationController
       if @my_verse.user_id != current_user.id
         flash.now[:error] = "Impressive hacking, but you're not allowed to write a MyVerse for someone else."
         render :new
+      end
+    end
+
+    def redirect_if_myverse_exists
+      # I want to redirect users to the my_verse edit page if they already have a MyVerse with a given VerseReference.
+      
+      if mv = MyVerse.find_by(user_id: current_user.id, verse_reference: @my_verse.verse_reference)
+        flash[:error] = "You already have a MyVerse with this Verse Reference! Feel free to edit it here."
+        redirect_to edit_my_verse_path(mv)
       end
     end
 end
