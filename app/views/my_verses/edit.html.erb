@@ -3,6 +3,20 @@
 <%= render "shared/required_field" %>
 
 <%= form_for(@my_verse) do |f| %>
+  <p>
+    <span class="redstar">*</span>
+    <%= f.label :version %>
+    <%= f.text_field :version, required: true %>
+  </p>
+  <p>
+    <span class="redstar">*</span>
+    <%= f.label :verse_text %>
+    <%= f.text_area :verse_text, required: true %>
+  </p>
+  <p>
+    <%= f.label :reason_liked, "Why do you like this Bible verse?" %>
+    <%= f.text_area :reason_liked %>
+  </p>
 
   <%= f.submit "Update MyVerse" %>
 <% end %>
