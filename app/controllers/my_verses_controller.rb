@@ -34,6 +34,9 @@ class MyVersesController < ApplicationController
 
   def edit
     @my_verse = MyVerse.find(params[:id])
+
+    redirect_unless_authorized_to_edit
+
     @verse_reference = @my_verse.verse_reference
   end
 
@@ -60,6 +63,13 @@ class MyVersesController < ApplicationController
       if mv = MyVerse.find_by(user_id: current_user.id, verse_reference: @my_verse.verse_reference)
         flash[:error] = "You already have a MyVerse with this Verse Reference! Feel free to edit it here."
         redirect_to edit_my_verse_path(mv)
+      end
+    end
+
+    def redirect_unless_authorized_to_edit
+      if @my_verse.user != current_user
+        flash[:error] = "You are not authorized to edit this MyVerse."
+        redirect_to my_verses_path
       end
     end
 end
