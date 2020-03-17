@@ -9,3 +9,7 @@
 <% end %>
 
 <p>Posted by <%= link_to(@my_verse.user_name, user_path(@my_verse.user)) %></p>
+
+<% if @my_verse.belongs_to_user?(current_user) %>
+  <p><%= link_to "Edit this MyVerse", edit_my_verse_path(@my_verse) %></p>
+<% end %>

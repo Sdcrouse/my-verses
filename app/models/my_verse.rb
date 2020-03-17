@@ -9,4 +9,8 @@ class MyVerse < ApplicationRecord
   def user_name
     self.user.username
   end
+
+  def belongs_to_user?(user)
+    self.user == user
+  end
 end
