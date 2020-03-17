@@ -8,6 +8,10 @@
       <li>
         <%= link_to(display_reference(mv.verse_reference), my_verse_path(mv)) %>, 
         posted by <%= link_to(mv.user_name, user_path(mv.user)) %>
+
+        <% if mv.belongs_to_user?(current_user) %>
+          <%= link_to "Edit this MyVerse", edit_my_verse_path(mv) %>
+        <% end %>
       </li>
     <% end %>
   </ul>
