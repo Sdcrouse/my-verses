@@ -1,0 +1,3 @@
+<% if my_verse.belongs_to_user?(current_user) %>
+  <%= link_to "Edit this MyVerse", edit_my_verse_path(my_verse) %>
+<% end %>

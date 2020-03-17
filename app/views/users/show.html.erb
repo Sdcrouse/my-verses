@@ -22,9 +22,7 @@
       <li>
         <%= link_to(display_reference(mv.verse_reference), my_verse_path(mv)) %>
 
-        <% if mv.belongs_to_user?(current_user) %>
-          <%= link_to "Edit this MyVerse", edit_my_verse_path(mv) %>
-        <% end %>
+        <%= render partial: "my_verses/links_to_edit_and_delete", locals: {my_verse: mv} %>
       </li>
     <% end %>
   </ul>
