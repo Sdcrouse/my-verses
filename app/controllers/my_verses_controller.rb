@@ -35,13 +35,14 @@ class MyVersesController < ApplicationController
   def edit
     @my_verse = MyVerse.find(params[:id])
 
-    redirect_unless_authorized_to_edit
+    redirect_unless_authorized_to_edit and return
 
     @verse_reference = @my_verse.verse_reference
   end
 
   def update
-    binding.pry
+    @my_verse = MyVerse.find(params[:id])
+    redirect_unless_authorized_to_edit and return
   end
 
   private
