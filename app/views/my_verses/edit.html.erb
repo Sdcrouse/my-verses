@@ -2,6 +2,9 @@
 
 <%= render "shared/required_field" %>
 
+<%= render partial: "shared/validation_errors",
+    locals: {resource: @my_verse, attempted_action: "updating your MyVerse"} %>
+
 <%= form_for(@my_verse) do |f| %>
   <!-- Stretch goal: Allow users to choose from a list of VerseReferences or create a new VerseReference.
        Another idea: Have users choose from lists for each VerseReference attribute (book, chapter, etc). -->

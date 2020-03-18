@@ -52,6 +52,8 @@ class MyVersesController < ApplicationController
     if @my_verse.update(my_verse_params)
       flash[:success] = "Your MyVerse was successfully updated!"
       redirect_to my_verse_path(@my_verse)
+    else
+      render :edit
     end
   end
 
