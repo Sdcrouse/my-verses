@@ -43,6 +43,16 @@ class MyVersesController < ApplicationController
   def update
     @my_verse = MyVerse.find(params[:id])
     redirect_unless_authorized_to_edit and return
+    @my_verse.verse_reference = VerseReference.find_or_initialize_by(verse_reference_params)
+    @my_verse.user_id = current_user.id # This also prevents users from creating MyVerses for other people.
+
+    redirect_if_myverse_exists and return 
+    # I don't like that this redirects to another edit page instead of re-rendering the same one.
+    
+    if @my_verse.update(my_verse_params)
+      flash[:success] = "Your MyVerse was successfully updated!"
+      redirect_to my_verse_path(@my_verse)
+    end
   end
 
   private
