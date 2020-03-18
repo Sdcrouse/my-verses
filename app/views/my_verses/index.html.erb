@@ -1,5 +1,5 @@
 <% if @verse_reference %>
-  <h1><%= display_reference(@verse_reference) %> MyVerses</h1>
+  <h1><%= @verse_reference.citation_format %> MyVerses</h1>
 <% else %>
   <h1>Here are all the user-submitted MyVerses:</h1>
 <% end %>  
@@ -10,7 +10,7 @@
   <ul>
     <% @my_verses.each do |mv| %><!-- This should be refactored with a partial and/or helper. -->
       <li>
-        <%= link_to(display_reference(mv.verse_reference), my_verse_path(mv)) %>, 
+        <%= link_to(mv.verse_reference.citation_format, my_verse_path(mv)) %>, 
         posted by <%= link_to(mv.user_name, user_path(mv.user)) %>
 
         <%= render partial: "links_to_edit_and_delete", locals: {my_verse: mv} %>
