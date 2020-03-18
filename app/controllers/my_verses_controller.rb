@@ -46,8 +46,8 @@ class MyVersesController < ApplicationController
     @my_verse.verse_reference = VerseReference.find_or_initialize_by(verse_reference_params)
     @my_verse.user_id = current_user.id # This also prevents users from creating MyVerses for other people.
 
-    redirect_if_myverse_exists and return 
-    # I don't like that this redirects to another edit page instead of re-rendering the same one.
+    # As of yet, I don't know how to prevent users from creating a duplicate MyVerse while editing a different one (an edge case).
+    # I tried altering #redirect_if_myverse_exists, but then it prevented users from updating a MyVerse unless they changed the VerseReference.
     
     if @my_verse.update(my_verse_params)
       flash[:success] = "Your MyVerse was successfully updated!"
@@ -70,7 +70,7 @@ class MyVersesController < ApplicationController
 
     def redirect_if_myverse_exists
       # I want to redirect users to the my_verse edit page if they already have a MyVerse with a given VerseReference.
-      
+
       if mv = MyVerse.find_by(user_id: current_user.id, verse_reference: @my_verse.verse_reference)
         flash[:error] = "You already have a MyVerse with this Verse Reference! Feel free to edit it here."
         redirect_to edit_my_verse_path(mv)
