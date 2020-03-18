@@ -40,7 +40,7 @@ class MyVersesController < ApplicationController
     @my_verse = MyVerse.find(params[:id])
     redirect_unless_authorized_to_edit and return
     set_verse_reference_and_user_id
-    
+
     # As of yet, I don't know how to prevent users from creating a duplicate MyVerse while editing a different one (an edge case).
     # I tried altering #redirect_if_myverse_exists, but then it prevented users from updating a MyVerse unless they changed the VerseReference.
     
@@ -50,6 +50,19 @@ class MyVersesController < ApplicationController
     else
       render :edit
     end
+  end
+
+  def destroy
+    my_verse = MyVerse.find(params[:id])
+
+    if my_verse.belongs_to_user?(current_user)
+      my_verse.destroy
+      flash[:success] = "MyVerse deleted."
+    else
+      flash[:error] = "You are not authorized to delete this MyVerse!"
+    end
+
+    redirect_to my_verses_path
   end
 
   private
