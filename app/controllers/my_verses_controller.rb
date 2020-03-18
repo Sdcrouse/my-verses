@@ -3,7 +3,8 @@ class MyVersesController < ApplicationController
 
   def index
     if params[:verse_reference_id]
-      @my_verses = VerseReference.find(params[:verse_reference_id]).my_verses
+      @verse_reference = VerseReference.find_by(id: params[:verse_reference_id])
+      @my_verses = @verse_reference.my_verses
     else
       @my_verses = MyVerse.all
     end
