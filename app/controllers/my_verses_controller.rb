@@ -2,7 +2,11 @@ class MyVersesController < ApplicationController
   before_action :user_must_be_logged_in
 
   def index
-    @my_verses = MyVerse.all
+    if params[:verse_reference_id]
+      @my_verses = VerseReference.find(params[:verse_reference_id]).my_verses
+    else
+      @my_verses = MyVerse.all
+    end
   end
 
   def show
