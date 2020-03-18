@@ -16,10 +16,7 @@ class MyVersesController < ApplicationController
 
   def create
     @my_verse = MyVerse.new(my_verse_params)
-    @my_verse.verse_reference = VerseReference.find_or_initialize_by(verse_reference_params)
-    # The line above probably needs to be refactored into a MyVerse method, but I don't yet know how.
-    @my_verse.user_id = current_user.id # This also prevents users from creating MyVerses for other people.
-
+    set_verse_reference_and_user_id
     redirect_if_myverse_exists and return
 
     if @my_verse.save
@@ -34,7 +31,6 @@ class MyVersesController < ApplicationController
 
   def edit
     @my_verse = MyVerse.find(params[:id])
-
     redirect_unless_authorized_to_edit and return
 
     @verse_reference = @my_verse.verse_reference
@@ -43,9 +39,8 @@ class MyVersesController < ApplicationController
   def update
     @my_verse = MyVerse.find(params[:id])
     redirect_unless_authorized_to_edit and return
-    @my_verse.verse_reference = VerseReference.find_or_initialize_by(verse_reference_params)
-    @my_verse.user_id = current_user.id # This also prevents users from creating MyVerses for other people.
-
+    set_verse_reference_and_user_id
+    
     # As of yet, I don't know how to prevent users from creating a duplicate MyVerse while editing a different one (an edge case).
     # I tried altering #redirect_if_myverse_exists, but then it prevented users from updating a MyVerse unless they changed the VerseReference.
     
@@ -68,6 +63,13 @@ class MyVersesController < ApplicationController
       params[:my_verse].require(:verse_reference).permit(
         :book, :chapter, :verse_start, :verse_end
       )
+    end
+
+    def set_verse_reference_and_user_id
+      @my_verse.verse_reference = VerseReference.find_or_initialize_by(verse_reference_params)
+      # The line above probably needs to be refactored into a MyVerse method, but I don't yet know how.
+      
+      @my_verse.user_id = current_user.id # This also prevents users from creating MyVerses for other people.
     end
 
     def redirect_if_myverse_exists
