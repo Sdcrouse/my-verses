@@ -48,4 +48,18 @@ class VerseReference < ApplicationRecord
       errors.add(:verse_end, "can only be 176 or lower")
     end
   end
+
+  def citation_format
+    if verse_start.present?
+
+      if verse_end.present? # Proverbs 3:5-6
+        "#{book} #{chapter}:#{verse_start}-#{verse_end}"
+      else # John 3:16
+        "#{book} #{chapter}:#{verse_start}"
+      end
+
+    else # Psalm 23
+      "#{book} #{chapter}"
+    end
+  end
 end
