@@ -22,7 +22,11 @@ class MyVersesController < ApplicationController
 
   def new
     @my_verse = MyVerse.new
-    @my_verse.build_verse_reference
+    if params[:verse_reference_id]
+      @my_verse.verse_reference = VerseReference.find_by(id: params[:verse_reference_id])
+    else
+      @my_verse.build_verse_reference
+    end
   end
 
   def create
