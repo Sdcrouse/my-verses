@@ -13,7 +13,8 @@ class MyVersesController < ApplicationController
   end
 
   def show
-    @my_verse = MyVerse.find(params[:id])
+    @my_verse = MyVerse.find_by(id: params[:id])
+    redirect_if_nonexistent("MyVerse", @my_verse, my_verses_path) and return
   end
 
   def new
@@ -42,14 +43,16 @@ class MyVersesController < ApplicationController
   end
 
   def edit
-    @my_verse = MyVerse.find(params[:id])
+    @my_verse = MyVerse.find_by(id: params[:id])
+    redirect_if_nonexistent("MyVerse", @my_verse, my_verses_path) and return
     redirect_unless_authorized_to_edit and return
 
     @verse_reference = @my_verse.verse_reference
   end
 
   def update
-    @my_verse = MyVerse.find(params[:id])
+    @my_verse = MyVerse.find_by(id: params[:id])
+    redirect_if_nonexistent("MyVerse", @my_verse, my_verses_path) and return # Not sure if this works.
     redirect_unless_authorized_to_edit and return
     set_verse_reference_and_user_id
 
@@ -65,7 +68,8 @@ class MyVersesController < ApplicationController
   end
 
   def destroy
-    my_verse = MyVerse.find(params[:id])
+    my_verse = MyVerse.find_by(id: params[:id])
+    redirect_if_nonexistent("MyVerse", @my_verse, my_verses_path) and return
 
     if my_verse.belongs_to_user?(current_user)
       my_verse.destroy
