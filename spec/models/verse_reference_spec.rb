@@ -10,6 +10,10 @@ RSpec.describe VerseReference, type: :model do
     }
   end
 
+  let(:missing_verse_end) do
+    valid_verse_reference_attributes.except(:verse_end)
+  end
+
   let(:only_book_and_chapter) do
     valid_verse_reference_attributes.except(:verse_start, :verse_end)
   end
@@ -21,6 +25,17 @@ RSpec.describe VerseReference, type: :model do
     expect(valid_verse.chapter).to eq("3")
     expect(valid_verse.verse_start).to eq("5")
     expect(valid_verse.verse_end).to eq("6")
+  end
+
+  it "has a citation format" do
+    reference_1 = VerseReference.new(valid_verse_reference_attributes)
+    expect(reference_1.citation_format).to eq("Proverbs 3:5-6")
+
+    reference_2 = VerseReference.new(missing_verse_end)
+    expect(reference_2.citation_format).to eq("Proverbs 3:5")
+
+    reference_3 = VerseReference.new(only_book_and_chapter)
+    expect(reference_3.citation_format).to eq("Proverbs 3")
   end
 
   it "can be saved with valid attributes" do
