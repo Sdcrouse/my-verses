@@ -13,4 +13,8 @@ class MyVerse < ApplicationRecord
   def belongs_to_user?(user)
     self.user == user
   end
+
+  def reference_citation
+    self.verse_reference.citation_format
+  end
 end
