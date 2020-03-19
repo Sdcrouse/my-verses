@@ -5,46 +5,4 @@
 <%= render partial: "shared/validation_errors",
     locals: {resource: @my_verse, attempted_action: "updating your MyVerse"} %>
 
-<%= form_for(@my_verse) do |f| %>
-  <!-- Stretch goal: Allow users to choose from a list of VerseReferences or create a new VerseReference.
-       Another idea: Have users choose from lists for each VerseReference attribute (book, chapter, etc). -->
-
-  <%= f.fields_for @my_verse.verse_reference do |vr_form| %>
-    <p>
-      <span class="redstar">*</span>
-      <%= vr_form.label :book %>
-      <%= vr_form.text_field :book, required: true %>
-    </p>
-    <p>
-      <span class="redstar">*</span>
-      <%= vr_form.label :chapter %>
-      <%= vr_form.number_field :chapter, within: 1..150, required: true %>
-    </p>
-    <p>
-      <%= vr_form.label :verse_start, "Start of Verse" %>
-      <%= vr_form.number_field :verse_start, within: 1..176 %>
-    </p>
-    <p>
-      <%= vr_form.label :verse_end, "End of Verse" %>
-      <%= vr_form.number_field :verse_end, within: 2..176 %>
-      <!-- 2 is the minimum because verse_end > verse_start. -->
-    </p>
-  <% end %>
-
-  <p>
-    <span class="redstar">*</span>
-    <%= f.label :version %>
-    <%= f.text_field :version, required: true %>
-  </p>
-  <p>
-    <span class="redstar">*</span>
-    <%= f.label :verse_text %>
-    <%= f.text_area :verse_text, required: true %>
-  </p>
-  <p>
-    <%= f.label :reason_liked, "Why do you like this Bible verse?" %>
-    <%= f.text_area :reason_liked %>
-  </p>
-
-  <%= f.submit "Update MyVerse" %>
-<% end %>
+<%= render partial: "form", locals: {crud_action: "Update"} %>
