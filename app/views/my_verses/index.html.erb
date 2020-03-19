@@ -1,8 +1,7 @@
 <% if @verse_reference %>
   <h1><%= @verse_reference.citation_format %> MyVerses</h1>
   <p>
-    <%= link_to("Create a MyVerse with this Verse Reference", 
-    new_verse_reference_my_verse_path(@verse_reference)) unless current_user.has_verse_reference?(@verse_reference) %>
+    <%= link_to_new_myverse_with_reference(@verse_reference) %>
   </p>
 <% else %>
   <h1>Here are all the user-submitted MyVerses:</h1>

@@ -8,8 +8,7 @@
     <% @verse_references.each do |ref| %>
       <li>
         <%= link_to ref.citation_format, verse_reference_my_verses_path(ref) %>
-        <%= link_to("Create a MyVerse with this Verse Reference",
-            new_verse_reference_my_verse_path(ref)) unless current_user.has_verse_reference?(ref) %>
+        <%= link_to_new_myverse_with_reference(ref) %>
       </li>
     <% end %>
   </ul>
