@@ -27,4 +27,8 @@ class User < ApplicationRecord
       user.username = split_name.join(".").downcase
     end
   end
+
+  def has_verse_reference?(vr)
+    self.verse_references.include?(vr)
+  end
 end
