@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   delete '/logout', to: 'sessions#destroy'
 
   resources :verse_references, only: :index do
-    resources :my_verses, only: [:index]
+    resources :my_verses, only: [:index, :new]
   end
 
   get '/signup', to: 'users#new'

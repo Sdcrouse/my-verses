@@ -6,7 +6,11 @@
   <h3>Click on a Verse Reference to see all of its MyVerses.</h3>
   <ul>
     <% @verse_references.each do |ref| %>
-      <li><%= link_to ref.citation_format, verse_reference_my_verses_path(ref) %></li>
+      <li>
+        <%= link_to ref.citation_format, verse_reference_my_verses_path(ref) %>
+        <%= link_to "Create a MyVerse with this Verse Reference",
+            new_verse_reference_my_verse_path(ref) %>
+      </li>
     <% end %>
   </ul>
 <% end %>
