@@ -4,12 +4,8 @@ class MyVersesController < ApplicationController
   def index
     if params[:verse_reference_id]
       @verse_reference = VerseReference.find_by(id: params[:verse_reference_id])
-
-      if @verse_reference.nil? # This will be moved into a private method after I add the nested new route.
-        flash[:error] = "This VerseReference does not exist."
-        redirect_to verse_references_path and return
-      end
-
+      redirect_if_nonexistent("Verse Reference", @verse_reference, verse_references_path) and return
+      
       @my_verses = @verse_reference.my_verses
     else
       @my_verses = MyVerse.all
