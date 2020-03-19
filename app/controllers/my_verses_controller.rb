@@ -24,6 +24,7 @@ class MyVersesController < ApplicationController
     @my_verse = MyVerse.new
     if params[:verse_reference_id]
       @my_verse.verse_reference = VerseReference.find_by(id: params[:verse_reference_id])
+      redirect_if_nonexistent("Verse Reference", @my_verse.verse_reference, verse_references_path) and return
     else
       @my_verse.build_verse_reference
     end
@@ -106,6 +107,13 @@ class MyVersesController < ApplicationController
       if mv = MyVerse.find_by(user_id: current_user.id, verse_reference: @my_verse.verse_reference)
         flash[:error] = "You already have a MyVerse with this Verse Reference! Feel free to edit it here."
         redirect_to edit_my_verse_path(mv)
+      end
+    end
+
+    def redirect_if_nonexistent(obj_type, obj, path_of_redirection)
+      if obj.nil?
+        flash[:error] = "This #{obj_type} does not exist."
+        redirect_to path_of_redirection
       end
     end
 
