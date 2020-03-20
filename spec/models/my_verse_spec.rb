@@ -56,4 +56,22 @@ RSpec.describe MyVerse, type: :model do
       "Verse reference must exist"
     )
   end
+
+  it "can show its User's username" do
+    my_verse = MyVerse.new(valid_myverse)
+    expect(my_verse.user_name).to eq("moses")
+  end
+
+  it "knows whether or not it belongs to a User" do
+    my_verse = MyVerse.new(valid_myverse)
+    elijah = User.create(username: "theLORDisGod", email: "prophet@israel.com", password: "Repent!")
+
+    expect(my_verse.belongs_to_user?(moses)).to be true
+    expect(my_verse.belongs_to_user?(elijah)).to be false
+  end
+
+  it "can show its VerseReference's citation format" do
+    my_verse = MyVerse.new(valid_myverse)
+    expect(my_verse.reference_citation).to eq("Genesis 1:1")
+  end
 end
