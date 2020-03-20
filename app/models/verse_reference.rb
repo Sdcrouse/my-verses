@@ -62,4 +62,8 @@ class VerseReference < ApplicationRecord
       "#{book} #{chapter}"
     end
   end
+
+  def self.within_book(book_title)
+    where("book = ?", book_title).order(:chapter, :verse_start, :verse_end)
+  end
 end
