@@ -4,9 +4,7 @@ class MyVersesController < ApplicationController
 
   def index
     if params[:verse_reference_id]
-      @verse_reference = VerseReference.find_by(id: params[:verse_reference_id])
-      redirect_if_nonexistent("Verse Reference", @verse_reference, verse_references_path) and return
-      
+      find_verse_reference_or_redirect and return
       @my_verses = @verse_reference.my_verses
     else
       @my_verses = MyVerse.all
@@ -20,8 +18,8 @@ class MyVersesController < ApplicationController
     @my_verse = MyVerse.new
 
     if params[:verse_reference_id]
-      @my_verse.verse_reference = VerseReference.find_by(id: params[:verse_reference_id])
-      redirect_if_nonexistent("Verse Reference", @my_verse.verse_reference, verse_references_path) and return
+      find_verse_reference_or_redirect and return
+      @my_verse.verse_reference = @verse_reference
       redirect_if_user_already_has_this_myverse and return
     else
       @my_verse.build_verse_reference
@@ -81,6 +79,11 @@ class MyVersesController < ApplicationController
       @my_verse = MyVerse.find_by(id: params[:id])
       redirect_if_nonexistent("MyVerse", @my_verse, my_verses_path) and return
       # When/after the #update action calls this, it breaks with an InvalidAuthenticityToken error.
+    end
+
+    def find_verse_reference_or_redirect
+      @verse_reference = VerseReference.find_by(id: params[:verse_reference_id])
+      redirect_if_nonexistent("Verse Reference", @verse_reference, verse_references_path)
     end
 
     def my_verse_params
