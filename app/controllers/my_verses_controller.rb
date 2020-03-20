@@ -1,5 +1,6 @@
 class MyVersesController < ApplicationController
   before_action :user_must_be_logged_in
+  before_action :find_myverse_or_redirect, only: [:show, :edit, :update, :destroy]
 
   def index
     if params[:verse_reference_id]
@@ -13,13 +14,11 @@ class MyVersesController < ApplicationController
   end
 
   def show
-    @my_verse = MyVerse.find_by(id: params[:id])
-    redirect_if_nonexistent("MyVerse", @my_verse, my_verses_path) and return
   end
 
   def new
     @my_verse = MyVerse.new
-    
+
     if params[:verse_reference_id]
       @my_verse.verse_reference = VerseReference.find_by(id: params[:verse_reference_id])
       redirect_if_nonexistent("Verse Reference", @my_verse.verse_reference, verse_references_path) and return
@@ -45,16 +44,12 @@ class MyVersesController < ApplicationController
   end
 
   def edit
-    @my_verse = MyVerse.find_by(id: params[:id])
-    redirect_if_nonexistent("MyVerse", @my_verse, my_verses_path) and return
     redirect_unless_authorized_to_edit and return
 
     @verse_reference = @my_verse.verse_reference
   end
 
   def update
-    @my_verse = MyVerse.find_by(id: params[:id])
-    redirect_if_nonexistent("MyVerse", @my_verse, my_verses_path) and return # Not sure if this works.
     redirect_unless_authorized_to_edit and return
     set_verse_reference_and_user_id
 
@@ -70,11 +65,8 @@ class MyVersesController < ApplicationController
   end
 
   def destroy
-    my_verse = MyVerse.find_by(id: params[:id])
-    redirect_if_nonexistent("MyVerse", @my_verse, my_verses_path) and return
-
-    if my_verse.belongs_to_user?(current_user)
-      my_verse.destroy
+    if @my_verse.belongs_to_user?(current_user)
+      @my_verse.destroy
       flash[:success] = "MyVerse deleted."
     else
       flash[:error] = "You are not authorized to delete this MyVerse!"
@@ -84,6 +76,13 @@ class MyVersesController < ApplicationController
   end
 
   private
+
+    def find_myverse_or_redirect
+      @my_verse = MyVerse.find_by(id: params[:id])
+      redirect_if_nonexistent("MyVerse", @my_verse, my_verses_path) and return
+      # When/after the #update action calls this, it breaks with an InvalidAuthenticityToken error.
+    end
+
     def my_verse_params
       params.require(:my_verse).permit(
         :version, :verse_text, :reason_liked
