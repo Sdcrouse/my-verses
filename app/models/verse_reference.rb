@@ -63,7 +63,10 @@ class VerseReference < ApplicationRecord
     end
   end
 
+  default_scope { order(:book, :chapter, :verse_start, :verse_end) }
+  # I don't know why, but this doesn't show the VerseReferences in the right order.
+
   def self.within_book(book_title)
-    where("book = ?", book_title).order(:chapter, :verse_start, :verse_end)
+    where("book = ?", book_title)
   end
 end
