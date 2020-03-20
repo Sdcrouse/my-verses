@@ -18,12 +18,12 @@ class MyVersesController < ApplicationController
   end
 
   def new
-    # Somehow, this still renders /verse_references/:verse_reference_id/my_verses/new, even if the User already has a MyVerse with that reference.
-    # I need to use and probably refactor #redirect_if_user_already_has_this_myverse.
     @my_verse = MyVerse.new
+    
     if params[:verse_reference_id]
       @my_verse.verse_reference = VerseReference.find_by(id: params[:verse_reference_id])
       redirect_if_nonexistent("Verse Reference", @my_verse.verse_reference, verse_references_path) and return
+      redirect_if_user_already_has_this_myverse and return
     else
       @my_verse.build_verse_reference
     end
