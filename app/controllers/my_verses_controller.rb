@@ -18,6 +18,8 @@ class MyVersesController < ApplicationController
   end
 
   def new
+    # Somehow, this still renders /verse_references/:verse_reference_id/my_verses/new, even if the User already has a MyVerse with that reference.
+    # I need to use and probably refactor #redirect_if_user_already_has_this_myverse.
     @my_verse = MyVerse.new
     if params[:verse_reference_id]
       @my_verse.verse_reference = VerseReference.find_by(id: params[:verse_reference_id])
@@ -30,7 +32,7 @@ class MyVersesController < ApplicationController
   def create
     @my_verse = MyVerse.new(my_verse_params)
     set_verse_reference_and_user_id
-    redirect_if_myverse_exists and return
+    redirect_if_user_already_has_this_myverse and return
 
     if @my_verse.save
       flash[:success] = "Success! Here is your new MyVerse, #{current_user.username}:"
@@ -57,7 +59,7 @@ class MyVersesController < ApplicationController
     set_verse_reference_and_user_id
 
     # As of yet, I don't know how to prevent users from creating a duplicate MyVerse while editing a different one (an edge case).
-    # I tried altering #redirect_if_myverse_exists, but then it prevented users from updating a MyVerse unless they changed the VerseReference.
+    # I tried altering #redirect_if_user_already_has_this_myverse, but then it prevented users from updating a MyVerse unless they changed the VerseReference.
     
     if @my_verse.update(my_verse_params)
       flash[:success] = "Your MyVerse was successfully updated!"
@@ -101,10 +103,10 @@ class MyVersesController < ApplicationController
       @my_verse.user_id = current_user.id # This also prevents users from creating MyVerses for other people.
     end
 
-    def redirect_if_myverse_exists
+    def redirect_if_user_already_has_this_myverse
       # I want to redirect users to the my_verse edit page if they already have a MyVerse with a given VerseReference.
 
-      if mv = MyVerse.find_by(user_id: current_user.id, verse_reference: @my_verse.verse_reference)
+      if mv = current_user.my_verses.find_by(verse_reference: @my_verse.verse_reference)
         flash[:error] = "You already have a MyVerse with this Verse Reference! Feel free to edit it here."
         redirect_to edit_my_verse_path(mv)
       end
