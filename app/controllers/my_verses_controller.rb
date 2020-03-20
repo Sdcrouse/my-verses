@@ -106,7 +106,7 @@ class MyVersesController < ApplicationController
     def redirect_if_user_already_has_this_myverse
       # I want to redirect users to the my_verse edit page if they already have a MyVerse with a given VerseReference.
 
-      if mv = current_user.my_verses.find_by(verse_reference: @my_verse.verse_reference)
+      if mv = current_user.find_myverse_with_reference(@my_verse.verse_reference)
         flash[:error] = "You already have a MyVerse with this Verse Reference! Feel free to edit it here."
         redirect_to edit_my_verse_path(mv)
       end

@@ -31,4 +31,8 @@ class User < ApplicationRecord
   def has_verse_reference?(vr)
     self.verse_references.include?(vr)
   end
+
+  def find_myverse_with_reference(ref)
+    self.my_verses.find_by(verse_reference: ref)
+  end
 end
