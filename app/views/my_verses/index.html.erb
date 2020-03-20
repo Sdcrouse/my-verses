@@ -13,9 +13,7 @@
   <ul>
     <% @my_verses.each do |mv| %><!-- This should be refactored with a partial and/or helper. -->
       <li>
-        <%= link_to("#{mv.reference_citation} (#{mv.version})", my_verse_path(mv)) %>, 
-        posted by <%= link_to(mv.user_name, user_path(mv.user)) %>
-
+        <%= link_to_my_verse(mv) %>, posted by <%= link_to(mv.user_name, user_path(mv.user)) %>
         <%= render partial: "links_to_edit_and_delete", locals: {my_verse: mv} %>
       </li>
     <% end %>
