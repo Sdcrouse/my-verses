@@ -1,7 +1,5 @@
 class VerseReference < ApplicationRecord
-  default_scope { order(
-      :book, "CAST(chapter AS INTEGER)", "CAST(verse_start AS INTEGER)", "CAST(verse_end AS INTEGER)"
-  ) }
+  default_scope { order_by_book_chapter_verse }
   # The original default_scope didn't show the VerseReferences in the right order because all of the attributes were strings.
   # [123, 2, 3].sort => [2, 3, 123], but ['123', '2', '3'].sort => ['123', '2', '3']
   # Stretch goal: Change the verse_references table data types from string to integer (except for :book).
@@ -68,6 +66,12 @@ class VerseReference < ApplicationRecord
     else # Psalm 23
       "#{book} #{chapter}"
     end
+  end
+
+  def self.order_by_book_chapter_verse
+    order(
+      :book, "CAST(chapter AS INTEGER)", "CAST(verse_start AS INTEGER)", "CAST(verse_end AS INTEGER)"
+    )
   end
 
   def self.within_book(book_title)

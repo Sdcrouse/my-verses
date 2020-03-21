@@ -3,6 +3,8 @@ class MyVerse < ApplicationRecord
   belongs_to :verse_reference
   accepts_nested_attributes_for :verse_reference
 
+  default_scope { order_by_verse_reference_and_version }
+
   validates :version, presence: true
   validates :verse_text, presence: true
 
@@ -16,5 +18,11 @@ class MyVerse < ApplicationRecord
 
   def reference_citation
     self.verse_reference.citation_format
+  end
+
+  def self.order_by_verse_reference_and_version
+    joins(:verse_reference).merge(
+      VerseReference.order_by_book_chapter_verse
+    ).order(:version)
   end
 end
