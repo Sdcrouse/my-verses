@@ -25,4 +25,8 @@ class MyVerse < ApplicationRecord
       VerseReference.order_by_book_chapter_verse
     ).order(:version)
   end
+
+  def self.order_by_username
+    joins(:user).merge( User.order(:username) )
+  end
 end

@@ -5,9 +5,9 @@ class MyVersesController < ApplicationController
   def index
     if params[:verse_reference_id]
       find_verse_reference_or_redirect and return
-      @my_verses = @verse_reference.my_verses
+      @my_verses = @verse_reference.my_verses.order_by_username
     else
-      @my_verses = MyVerse.all
+      @my_verses = MyVerse.all.order_by_username
     end
   end
 
