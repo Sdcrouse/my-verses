@@ -75,6 +75,6 @@ class VerseReference < ApplicationRecord
   end
 
   def self.within_book(book_title)
-    where("book = ?", book_title)
+    where(book: book_title)
   end
 end

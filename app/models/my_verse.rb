@@ -31,6 +31,6 @@ class MyVerse < ApplicationRecord
   end
 
   def self.in_book(book_title)
-    joins(:verse_reference).merge( VerseReference.where(book: book_title) )
+    joins(:verse_reference).merge( VerseReference.within_book(book_title) )
   end
 end
