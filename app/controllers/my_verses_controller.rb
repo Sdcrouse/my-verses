@@ -8,7 +8,12 @@ class MyVersesController < ApplicationController
       @my_verses = @verse_reference.my_verses.order_by_username
     elsif params[:book]
       @book = params[:book]
-      @my_verses = MyVerse.in_book(params[:book]).order_by_username
+      if VerseReference.pluck(:book).include?(@book)
+        @my_verses = MyVerse.in_book(params[:book]).order_by_username
+      else
+        flash[:error] = "There are no MyVerses with this book."
+        redirect_to my_verses_path
+      end
     else
       @my_verses = MyVerse.all.order_by_username
     end
