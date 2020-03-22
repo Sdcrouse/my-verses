@@ -12,8 +12,15 @@
 <% if @my_verses.empty? %>
   <h3 class="no-my_verses">It looks like nobody has created a MyVerse yet. You can be the first!</h3>
 <% else %>
+  <%= form_tag(my_verses_path, method: :get) do %>
+    <%= label_tag :book, "Search for MyVerses by Book:" %>
+    <%= search_field_tag :book, nil, placeholder: "Enter a book of the Bible" %>
+    <%= submit_tag "Search", name: nil %>
+    <!-- name: nil prevents "commit=Search" from showing up in the URL. -->
+  <% end %>
+
   <ul>
-    <% @my_verses.each do |mv| %><!-- This should be refactored with a partial and/or helper. -->
+    <% @my_verses.each do |mv| %>
       <li>
         <%= link_to_my_verse(mv) %>, posted by <%= link_to(mv.user_name, user_path(mv.user)) %>
         <%= render partial: "links_to_edit_and_delete", locals: {my_verse: mv} %>
