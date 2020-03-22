@@ -8,12 +8,8 @@ class MyVersesController < ApplicationController
       @my_verses = @verse_reference.my_verses.order_by_username
     elsif params[:book]
       @book = params[:book]
-      if VerseReference.pluck(:book).include?(@book)
-        @my_verses = MyVerse.in_book(params[:book]).order_by_username
-      else
-        flash[:error] = "There are no MyVerses with this book."
-        redirect_to my_verses_path
-      end
+      redirect_if_invalid_book and return
+      @my_verses = MyVerse.in_book(params[:book]).order_by_username
     else
       @my_verses = MyVerse.all.order_by_username
     end
@@ -92,6 +88,13 @@ class MyVersesController < ApplicationController
     def find_verse_reference_or_redirect
       @verse_reference = VerseReference.find_by(id: params[:verse_reference_id])
       redirect_if_nonexistent("Verse Reference", @verse_reference, verse_references_path)
+    end
+
+    def redirect_if_invalid_book
+      if !VerseReference.pluck(:book).include?(@book)
+        flash[:error] = "There are no MyVerses with this book."
+        redirect_to my_verses_path
+      end
     end
 
     def my_verse_params
