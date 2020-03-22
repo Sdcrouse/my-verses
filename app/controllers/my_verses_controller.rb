@@ -91,9 +91,7 @@ class MyVersesController < ApplicationController
     end
 
     def redirect_if_invalid_book
-      refs_with_book = VerseReference.where(book: @book)
-
-      if refs_with_book.empty? || refs_with_book.collect{|ref| ref.my_verses}.empty?
+      if !MyVerse.any_with_book?(@book)
         flash[:error] = "There are no MyVerses with this book."
         redirect_to my_verses_path
       end
