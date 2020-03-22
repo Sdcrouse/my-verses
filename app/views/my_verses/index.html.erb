@@ -3,6 +3,8 @@
   <p>
     <%= link_to_new_myverse_with_reference(@verse_reference) %>
   </p>
+<% elsif @book %>
+  <h1>MyVerses with the Book of <%= @book %>:</h1>
 <% else %>
   <h1>Here are all the user-submitted MyVerses:</h1>
 <% end %>  
