@@ -29,4 +29,8 @@ class MyVerse < ApplicationRecord
   def self.order_by_username
     joins(:user).merge( User.order(:username) )
   end
+
+  def self.in_book(book_title)
+    joins(:verse_reference).merge( VerseReference.where(book: book_title) )
+  end
 end

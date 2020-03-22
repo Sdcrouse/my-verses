@@ -7,10 +7,8 @@ class MyVersesController < ApplicationController
       find_verse_reference_or_redirect and return
       @my_verses = @verse_reference.my_verses.order_by_username
     elsif params[:book]
-      @my_verses = MyVerse.joins(:verse_reference).merge(
-        VerseReference.where(book: params[:book])
-      ).order_by_username
-      # This needs to be refactored, and I need to adjust the view file.
+      @my_verses = MyVerse.in_book(params[:book]).order_by_username
+      # I still need to adjust the view file.
     else
       @my_verses = MyVerse.all.order_by_username
     end
