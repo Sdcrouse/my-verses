@@ -77,4 +77,11 @@ class VerseReference < ApplicationRecord
   def self.within_book(book_title)
     where(book: book_title)
   end
+
+  def self.any_with_myverses_and_book?(book_title)
+    # Find any and all verse_references with a book
+    # Then, see if any of those have my_verses (at this time, some will not).
+    
+    within_book(book_title).detect{ |vr| vr.my_verses.any? }
+  end
 end
