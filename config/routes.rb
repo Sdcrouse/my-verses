@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get '/my_verses/books/:book', to: 'my_verses#index'
   resources :my_verses
   
   get '/auth/facebook/callback' => 'sessions#fb_login'
