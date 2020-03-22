@@ -16,12 +16,6 @@ class MyVerse < ApplicationRecord
     self.user == user
   end
 
-  def self.any_with_book?(book_title)
-    self.all.collect do |myverse|
-      myverse.verse_reference
-    end.detect{|ref| ref.book == book_title}
-  end
-
   def reference_citation
     self.verse_reference.citation_format
   end
