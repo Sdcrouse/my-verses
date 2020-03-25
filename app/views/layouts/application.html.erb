@@ -10,23 +10,26 @@
   </head>
 
   <body>
-    <nav>
-      <%= button_to "Home", root_path, method: :get %>
+    <section class="spine">
+      <nav>
+        <%= button_to "Home", root_path, method: :get %>
 
-      <% if logged_in? %>
-        <%= button_to "Your Profile", user_path(current_user), method: :get %>
-        <%= button_to "New MyVerse", new_my_verse_path, method: :get %>
-        <%= button_to "All MyVerses", my_verses_path, method: :get %>
-        <%= button_to "Verse References", verse_references_path, method: :get %>
-        <%= button_to "Log Out", logout_path, :method => :delete %>
-      <% else %>
-        <%= button_to "Sign Up", signup_path, method: :get %>
-        <%= button_to "Log In", login_path, method: :get %>
-      <% end %>
-    </nav>
-    
-    <%= render 'shared/flash_messages' %>
+        <% if logged_in? %>
+          <%= button_to "Your Profile", user_path(current_user), method: :get %>
+          <%= button_to "New MyVerse", new_my_verse_path, method: :get %>
+          <%= button_to "All MyVerses", my_verses_path, method: :get %>
+          <%= button_to "Verse References", verse_references_path, method: :get %>
+          <%= button_to "Log Out", logout_path, :method => :delete %>
+        <% else %>
+          <%= button_to "Sign Up", signup_path, method: :get %>
+          <%= button_to "Log In", login_path, method: :get %>
+        <% end %>
+      </nav>
+    </section>
+    <section class="page">
+      <%= render 'shared/flash_messages' %>
 
-    <%= yield %>
+      <%= yield %>
+    </section>
   </body>
 </html>
