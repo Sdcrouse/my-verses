@@ -25,8 +25,18 @@ body {
 }
 
 .spine {
+  display: flex;
+  flex-direction: column;
   flex: 1;
   background-color: #5C3918;
+}
+
+.spine div {
+  flex: 1;
+}
+
+.spine nav {
+  flex: 2;
 }
 
 .page {

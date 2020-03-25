@@ -11,6 +11,9 @@
 
   <body>
     <section class="spine">
+      <div>
+      </div>
+
       <nav>
         <%= button_to "Home", root_path, method: :get %>
 
@@ -25,6 +28,9 @@
           <%= button_to "Log In", login_path, method: :get %>
         <% end %>
       </nav>
+
+      <div>
+      </div>
     </section>
     <section class="page">
       <%= render 'shared/flash_messages' %>
