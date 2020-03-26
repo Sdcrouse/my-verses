@@ -28,11 +28,20 @@ body {
   display: flex;
   flex-direction: column;
   flex: 1;
+  align-items: center;
   background-color: #5C3918;
 }
 
 .spine div {
+  display: flex;
   flex: 1;
+  align-items: center;
+  width: 75%;
+}
+
+.yellowbar {
+  background-color: #EDFA58;
+  height: 10%;
 }
 
 .spine nav {
