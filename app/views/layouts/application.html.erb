@@ -11,9 +11,7 @@
 
   <body>
     <section class="spine">
-      <div>
-        <div class="yellowbar"></div>
-      </div>
+      <%= render "shared/div_with_yellow_bar" %>
 
       <nav>
         <%= button_to "Home", root_path, method: :get %>
@@ -30,9 +28,7 @@
         <% end %>
       </nav>
 
-      <div>
-        <div class="yellowbar"></div>
-      </div>
+      <%= render "shared/div_with_yellow_bar" %>
     </section>
     <section class="page">
       <%= render 'shared/flash_messages' %>
