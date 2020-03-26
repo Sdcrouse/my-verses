@@ -36,7 +36,11 @@ body {
 }
 
 .spine nav {
+  display: flex;
+  flex-direction: column;
   flex: 2;
+  justify-content: space-around;
+  align-items: center;
 }
 
 .page {
