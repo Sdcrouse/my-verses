@@ -52,6 +52,14 @@ body {
   align-items: center;
 }
 
+nav .button_to {
+  height: 10%;
+}
+
+nav .button_to input {
+  height: 100%;
+}
+
 .page {
   flex: 7;
 }
