@@ -61,7 +61,11 @@ nav .button_to input {
 }
 
 .page {
+  display: flex;
+  flex-direction: column;
   flex: 7;
+  align-items: center;
+  justify-content: center;
 }
 
 .redstar, .error-heading, .no-my_verses, .no-references {
