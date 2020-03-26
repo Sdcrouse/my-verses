@@ -1,37 +1,39 @@
 <h1>Sign up here!</h1>
 
-<%= render partial: "shared/required_field" %>
+<div>
+  <%= render partial: "shared/required_field" %>
 
-<%= render partial: "shared/validation_errors",
-    locals: {resource: @user, attempted_action: "signing up"} %>
+  <%= render partial: "shared/validation_errors",
+      locals: {resource: @user, attempted_action: "signing up"} %>
 
-<%= form_for(@user) do |f| %>
-  <p>
-    <span class="redstar">*</span>
-    <%= f.label :username, "Username:" %>
-    <%= f.text_field :username, required: true %>
-  </p>
-  <p>
-    <span class="redstar">*</span>
-    <%= f.label :email, "E-mail:" %>
-    <%= f.email_field :email, required: true %>
-  </p>
-  <p>
-    <%= f.label :first_name, "First name (optional):" %>
-    <%= f.text_field :first_name %>
-  </p>
-  <p>
-    <%= f.label :last_name, "Last name (optional):" %>
-    <%= f.text_field :last_name %>
-  </p>
-  <p>
-    <span class="redstar">*</span>
-    <%= f.label :password, "Password:" %>
-    <%= f.password_field :password, required: true %>
-  </p>
+  <%= form_for(@user) do |f| %>
+    <p>
+      <span class="redstar">*</span>
+      <%= f.label :username, "Username:" %>
+      <%= f.text_field :username, required: true %>
+    </p>
+    <p>
+      <span class="redstar">*</span>
+      <%= f.label :email, "E-mail:" %>
+      <%= f.email_field :email, required: true %>
+    </p>
+    <p>
+      <%= f.label :first_name, "First name (optional):" %>
+      <%= f.text_field :first_name %>
+    </p>
+    <p>
+      <%= f.label :last_name, "Last name (optional):" %>
+      <%= f.text_field :last_name %>
+    </p>
+    <p>
+      <span class="redstar">*</span>
+      <%= f.label :password, "Password:" %>
+      <%= f.password_field :password, required: true %>
+    </p>
 
-  <%= f.submit "Sign up!" %>
-<% end %>
+    <%= f.submit "Sign up!" %>
+  <% end %>
+</div>
 
 <%= render partial: "shared/facebook_link", locals: {user_action: "Sign up"} %>
 <!-- At some point, I want to use the Facebook SDK for JavaScript; 
