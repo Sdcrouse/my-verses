@@ -73,6 +73,17 @@ nav .button_to input {
   flex-direction: column;
   align-items: center;
   background-color: #C4C4C4;
+  width: 75%;
+}
+
+.page h2 {
+  color: #5C3918;
+}
+
+.page p {
+  display: flex;
+  justify-content: center;
+  width: 75%;
 }
 
 .redstar, .error-heading, .no-my_verses, .no-references {
