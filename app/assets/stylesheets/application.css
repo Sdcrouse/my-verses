@@ -68,6 +68,16 @@ nav .button_to input {
   justify-content: center;
 }
 
+.page h1 {
+  display: flex;
+  justify-content: center;
+  color: white;
+  background-color: #954E26;
+  width: 100%;
+  padding: 1% 0;
+  margin: 0;
+}
+
 .page div {
   display: flex;
   flex-direction: column;
