@@ -68,6 +68,13 @@ nav .button_to input {
   justify-content: center;
 }
 
+.page div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #C4C4C4;
+}
+
 .redstar, .error-heading, .no-my_verses, .no-references {
   color: red;
 }
