@@ -25,13 +25,17 @@ body {
   background-color: #954E26;
 }
 
+body > div {
+  display: flex;
+  flex: 1;
+}
+
 .spine {
   position: fixed;
   height: 100%;
   width: 12.5%;
   display: flex;
   flex-direction: column;
-  flex: 1;
   align-items: center;
   background-color: #5C3918;
 }
