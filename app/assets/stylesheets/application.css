@@ -65,7 +65,8 @@ nav .button_to input {
   flex-direction: column;
   flex: 7;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
+  padding-top: 5%;
 }
 
 .page h1 {
