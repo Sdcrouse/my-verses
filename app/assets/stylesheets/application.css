@@ -119,6 +119,10 @@ h2 + form.button_to input{
   background-color: #5675E1;
 }
 
+.page div form:first-of-type input[type="submit"] {
+  margin-bottom: 5%;
+}
+
 .redstar, .error-heading, .no-my_verses, .no-references {
   color: red;
 }
