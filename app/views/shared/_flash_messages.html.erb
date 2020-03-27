@@ -1,3 +1,5 @@
 <% flash.each do |message_type, message| %>
-  <%= content_tag :h3, message, class: "#{message_type}-heading" %>
+  <div>
+    <%= content_tag :h3, message, class: "#{message_type}-heading" %>
+  </div>
 <% end %>
