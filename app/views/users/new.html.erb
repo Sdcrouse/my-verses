@@ -8,11 +8,11 @@
 
   <%= form_for(@user) do |f| %>
     <p>
-      <%= f.label :username, "Username:" %>
+      <%= f.label :username, "Username:", class: "required-field" %>
       <%= f.text_field :username, required: true %>
     </p>
     <p>
-      <%= f.label :email, "E-mail:" %>
+      <%= f.label :email, "E-mail:", class: "required-field" %>
       <%= f.email_field :email, required: true %>
     </p>
     <p>
@@ -24,7 +24,7 @@
       <%= f.text_field :last_name %>
     </p>
     <p>
-      <%= f.label :password, "Password:" %>
+      <%= f.label :password, "Password:", class: "required-field" %>
       <%= f.password_field :password, required: true %>
     </p>
 
