@@ -22,6 +22,7 @@ body {
   display: flex;
   height: 100%;
   margin: 0;
+  background-color: #954E26;
 }
 
 .spine {
@@ -83,12 +84,17 @@ nav .button_to input {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #C4C4C4;
+  background-color: white;
   width: 75%;
 }
 
 .page h2 {
-  color: #5C3918;
+  color: white;
+}
+
+.page div h2 {
+  color: black;
+  text-decoration: underline;
 }
 
 .page p {
