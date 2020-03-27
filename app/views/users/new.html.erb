@@ -1,4 +1,8 @@
 <div>
+  <!-- Next steps: Shrink the <div> to better fit its contents. 
+       Also, add a white background, so that I can better see the red text. 
+       If I make the container around the form smaller, I might be able to better separate the labels and input fields. -->
+
   <h1>Sign up here!</h1>
 
   <%= render partial: "shared/required_field" %>
@@ -16,11 +20,11 @@
       <%= f.email_field :email, required: true %>
     </p>
     <p>
-      <%= f.label :first_name, "First name (optional):" %>
+      <%= f.label :first_name, "First name:" %>
       <%= f.text_field :first_name %>
     </p>
     <p>
-      <%= f.label :last_name, "Last name (optional):" %>
+      <%= f.label :last_name, "Last name:" %>
       <%= f.text_field :last_name %>
     </p>
     <p>
