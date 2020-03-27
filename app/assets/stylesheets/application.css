@@ -106,7 +106,7 @@ nav .button_to input {
 .page div form:first-of-type p {
   display: flex;
   justify-content: space-between;
-  width: 100%;
+  width: 110%;
 }
 
 h2 + form.button_to {
@@ -121,6 +121,7 @@ h2 + form.button_to input{
 
 .page div form:first-of-type input[type="submit"] {
   margin-bottom: 5%;
+  width: 31%;
 }
 
 .required-field, .error-heading, .no-my_verses, .no-references {
