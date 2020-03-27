@@ -1,25 +1,25 @@
-<h1>Returning users, please log in here.</h1>
+<div>
+  <h1>Returning users, please log in here.</h1>
 
-<%= render partial: "shared/required_field" %>
+  <%= render partial: "shared/required_field" %>
 
-<%= form_tag login_path do %>
-  <!-- In this case, #form_for doesn't create the .field_with_errors class when a User can't log in.
-       This is likely because the form submits to /login instead of /users. 
-       To make the SessionsController cleaner, I am using #form_tag instead.
-  -->
+  <%= form_tag login_path do %>
+    <!-- In this case, #form_for doesn't create the .field_with_errors class when a User can't log in.
+        This is likely because the form submits to /login instead of /users. 
+        To make the SessionsController cleaner, I am using #form_tag instead.
+    -->
 
-  <p>
-    <span class="redstar">*</span>
-    <%= label_tag :email, "E-mail:" %>
-    <%= email_field_tag :email, nil, required: true %>
-  </p>
-  <p>
-    <span class="redstar">*</span>
-    <%= label_tag :password, "Password:" %>
-    <%= password_field_tag :password, nil, required: true %>
-  </p>
+    <p>
+      <%= label_tag :email, "E-mail:", class: "required-field" %>
+      <%= email_field_tag :email, nil, required: true %>
+    </p>
+    <p>
+      <%= label_tag :password, "Password:", class: "required-field" %>
+      <%= password_field_tag :password, nil, required: true %>
+    </p>
 
-  <%= submit_tag "Log in!" %>
-<% end %>
+    <%= submit_tag "Log in!" %>
+  <% end %>
+</div>
 
 <%= render partial: "shared/facebook_link", locals: {user_action: "Log in"} %>
