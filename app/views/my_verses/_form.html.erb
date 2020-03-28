@@ -4,13 +4,11 @@
 
   <%= f.fields_for @my_verse.verse_reference do |vr_form| %>
     <p>
-      <span class="redstar">*</span>
-      <%= vr_form.label :book %>
+      <%= vr_form.label :book, class: "required-field" %>
       <%= vr_form.text_field :book, required: true %>
     </p>
     <p>
-      <span class="redstar">*</span>
-      <%= vr_form.label :chapter %>
+      <%= vr_form.label :chapter, class: "required-field" %>
       <%= vr_form.number_field :chapter, within: 1..150, required: true %>
     </p>
     <p>
@@ -25,13 +23,11 @@
   <% end %>
 
   <p>
-    <span class="redstar">*</span>
-    <%= f.label :version %>
+    <%= f.label :version, class: "required-field" %>
     <%= f.text_field :version, required: true %>
   </p>
   <p>
-    <span class="redstar">*</span>
-    <%= f.label :verse_text %>
+    <%= f.label :verse_text, class: "required-field" %>
     <%= f.text_area :verse_text, required: true %>
   </p>
   <p>
