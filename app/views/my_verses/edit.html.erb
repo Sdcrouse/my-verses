@@ -1,8 +1,10 @@
 <h1>Edit your MyVerse here!</h1>
 
-<%= render "shared/required_field" %>
-
-<%= render partial: "shared/validation_errors",
-    locals: {resource: @my_verse, attempted_action: "updating your MyVerse"} %>
-
-<%= render partial: "form", locals: {crud_action: "Update"} %>
+<div>
+  <%= render "shared/required_field" %>
+  
+  <%= render partial: "shared/validation_errors",
+      locals: {resource: @my_verse, attempted_action: "updating your MyVerse"} %>
+  
+  <%= render partial: "form", locals: {crud_action: "Update"} %>
+</div>
