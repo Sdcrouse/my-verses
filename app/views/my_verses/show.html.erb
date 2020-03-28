@@ -1,13 +1,15 @@
 <h1><%= @my_verse.reference_citation %></h1>
 
-<p>"<%= @my_verse.verse_text %>"</p>
-
-<p><strong>Version:</strong> <%= @my_verse.version %></p>
-
-<% if @my_verse.reason_liked.present? %>
-  <p><strong>Reason Liked: </strong><%= @my_verse.reason_liked %></p>
-<% end %>
-
-<p>Posted by <%= link_to(@my_verse.user_name, user_path(@my_verse.user)) %></p>
-
-<%= render partial: "links_to_edit_and_delete", locals: {my_verse: @my_verse} %>
+<div>
+  <p>"<%= @my_verse.verse_text %>"</p>
+  
+  <p><strong>Version:</strong> <%= @my_verse.version %></p>
+  
+  <% if @my_verse.reason_liked.present? %>
+    <p><strong>Reason Liked: </strong><%= @my_verse.reason_liked %></p>
+  <% end %>
+  
+  <p>Posted by <%= link_to(@my_verse.user_name, user_path(@my_verse.user)) %></p>
+  
+  <%= render partial: "links_to_edit_and_delete", locals: {my_verse: @my_verse} %>
+</div>
