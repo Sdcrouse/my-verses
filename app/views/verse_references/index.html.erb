@@ -1,15 +1,17 @@
-<h1>Verse References</h1>
-
-<% if @verse_references.empty? %>
-  <h3 class="no-references">There are no Verse References yet. Feel free to add one by creating a new MyVerse!</h3>
-<% else %>
-  <h3>Click on a Verse Reference to see all of its MyVerses.</h3>
-  <ul>
-    <% @verse_references.each do |ref| %>
-      <li>
-        <%= link_to ref.citation_format, verse_reference_my_verses_path(ref) %>
-        <%= link_to_new_myverse_with_reference(ref) %>
-      </li>
-    <% end %>
-  </ul>
-<% end %>
+<div>
+  <h1>Verse References</h1>
+  
+  <% if @verse_references.empty? %>
+    <h3 class="no-references">There are no Verse References yet. Feel free to add one by creating a new MyVerse!</h3>
+  <% else %>
+    <h3>Click on a Verse Reference to see all of its MyVerses.</h3>
+    <ul>
+      <% @verse_references.each do |ref| %>
+        <li>
+          <%= link_to ref.citation_format, verse_reference_my_verses_path(ref) %>
+          <%= link_to_new_myverse_with_reference(ref) %>
+        </li>
+      <% end %>
+    </ul>
+  <% end %>
+</div>
