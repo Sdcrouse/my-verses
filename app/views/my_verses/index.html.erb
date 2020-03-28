@@ -1,30 +1,34 @@
 <% if @verse_reference %>
   <h1><%= @verse_reference.citation_format %> MyVerses</h1>
-  <p>
-    <%= link_to_new_myverse_with_reference(@verse_reference) %>
-  </p>
+  <div>
+    <p>
+      <%= link_to_new_myverse_with_reference(@verse_reference) %>
+    </p>
+  </div>
 <% elsif @book %>
   <h1>MyVerses with the Book of <%= @book %>:</h1>
 <% else %>
   <h1>Here are all the user-submitted MyVerses:</h1>
-<% end %>  
-
-<% if @my_verses.empty? %>
-  <h3 class="no-my_verses">It looks like nobody has created a MyVerse yet. You can be the first!</h3>
-<% else %>
-  <%= form_tag(my_verses_path, method: :get) do %>
-    <%= label_tag :book, "Search for MyVerses by Book:" %>
-    <%= search_field_tag :book, nil, placeholder: "Enter a book of the Bible" %>
-    <%= submit_tag "Search", name: nil %>
-    <!-- name: nil prevents "commit=Search" from showing up in the URL. -->
-  <% end %>
-
-  <ul>
-    <% @my_verses.each do |mv| %>
-      <li>
-        <%= link_to_my_verse(mv) %>, posted by <%= link_to(mv.user_name, user_path(mv.user)) %>
-        <%= render partial: "links_to_edit_and_delete", locals: {my_verse: mv} %>
-      </li>
-    <% end %>
-  </ul>
 <% end %>
+
+<div>
+  <% if @my_verses.empty? %>
+    <h3 class="no-my_verses">It looks like nobody has created a MyVerse yet. You can be the first!</h3>
+  <% else %>
+    <%= form_tag(my_verses_path, method: :get) do %>
+      <%= label_tag :book, "Search for MyVerses by Book:" %>
+      <%= search_field_tag :book, nil, placeholder: "Enter a book of the Bible" %>
+      <%= submit_tag "Search", name: nil %>
+      <!-- name: nil prevents "commit=Search" from showing up in the URL. -->
+    <% end %>
+
+    <ul>
+      <% @my_verses.each do |mv| %>
+        <li>
+          <%= link_to_my_verse(mv) %>, posted by <%= link_to(mv.user_name, user_path(mv.user)) %>
+          <%= render partial: "links_to_edit_and_delete", locals: {my_verse: mv} %>
+        </li>
+      <% end %>
+    </ul>
+  <% end %>
+</div>
