@@ -1,28 +1,30 @@
-<% if @user == current_user %>
-  <h1>Your Profile</h1>
-
-  <p>
-    <strong>E-mail:</strong> <%= @user.email %>
-  </p>
-
-  <% if @user.full_name %>
-    <p><strong>Full name:</strong> <%= @user.full_name %></p>
-  <% end %>
-<% else %>
-  <h1><%= @user.username %>'s Profile</h1>
-<% end %>
-
-<h2>MyVerses:</h2>
-
-<% if @my_verses.empty? %>
-  <p>No MyVerses yet.</p>
-<% else %>
-  <ul>
-    <% @my_verses.each do |mv| %><!-- This should be refactored with a partial and/or helper. -->
-      <li>
-        <%= link_to_my_verse(mv) %>
-        <%= render partial: "my_verses/links_to_edit_and_delete", locals: {my_verse: mv} %>
-      </li>
+<div>
+  <% if @user == current_user %>
+    <h1>Your Profile</h1>
+  
+    <p>
+      <strong>E-mail:</strong> <%= @user.email %>
+    </p>
+  
+    <% if @user.full_name %>
+      <p><strong>Full name:</strong> <%= @user.full_name %></p>
     <% end %>
-  </ul>
-<% end %>
+  <% else %>
+    <h1><%= @user.username %>'s Profile</h1>
+  <% end %>
+  
+  <h2>MyVerses:</h2>
+  
+  <% if @my_verses.empty? %>
+    <p>No MyVerses yet.</p>
+  <% else %>
+    <ul>
+      <% @my_verses.each do |mv| %><!-- This should be refactored with a partial and/or helper. -->
+        <li>
+          <%= link_to_my_verse(mv) %>
+          <%= render partial: "my_verses/links_to_edit_and_delete", locals: {my_verse: mv} %>
+        </li>
+      <% end %>
+    </ul>
+  <% end %>
+</div>
