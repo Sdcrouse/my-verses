@@ -9,7 +9,7 @@
       <% @verse_references.each do |ref| %>
         <li>
           <%= link_to ref.citation_format, verse_reference_my_verses_path(ref) %>
-          <%= link_to_new_myverse_with_reference(ref) %>
+          <%= button_to_new_myverse_with_reference(ref) %>
         </li>
       <% end %>
     </ul>
