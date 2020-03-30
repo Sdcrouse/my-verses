@@ -110,13 +110,14 @@ nav .button_to input {
   width: 75%;
 }
 
-.page div form:first-of-type {
+.page div form {
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding: 0 10%;
 }
 
-.page div form:first-of-type p {
+.page div form p {
   display: flex;
   justify-content: space-between;
   width: 110%;
@@ -132,9 +133,13 @@ h2 + form.button_to input{
   background-color: #5675E1;
 }
 
-.page div form:first-of-type input[type="submit"] {
+/* .page div form:first-of-type input[type="submit"] {
   margin-bottom: 5%;
-  width: 31%;
+  width: 31%; 
+} I could apply this to the login and signup forms. % */
+
+.page div form input[type="submit"] {
+  margin-bottom: 5%;
 }
 
 .required-field, .error-heading, .no-my_verses, .no-references {
