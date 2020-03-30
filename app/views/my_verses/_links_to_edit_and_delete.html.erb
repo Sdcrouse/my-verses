@@ -1,4 +1,4 @@
 <% if my_verse.belongs_to_user?(current_user) %>
-  <%= button_to "Edit this MyVerse", edit_my_verse_path(my_verse), method: :get %>
-  <%= button_to "Delete this MyVerse", my_verse_path(my_verse), method: :delete %>
+  <%= button_to "Edit", edit_my_verse_path(my_verse), method: :get %>
+  <%= button_to "Delete", my_verse_path(my_verse), method: :delete %>
 <% end %>
