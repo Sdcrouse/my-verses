@@ -4,30 +4,30 @@
 
   <%= f.fields_for @my_verse.verse_reference do |vr_form| %>
     <p>
-      <%= vr_form.label :book, class: "required-field" %>
+      <%= vr_form.label :book, "Book:", class: "required-field" %>
       <%= vr_form.text_field :book, required: true %>
     </p>
     <p>
-      <%= vr_form.label :chapter, class: "required-field" %>
+      <%= vr_form.label :chapter, "Chapter:", class: "required-field" %>
       <%= vr_form.number_field :chapter, within: 1..150, required: true %>
     </p>
     <p>
-      <%= vr_form.label :verse_start, "Start of Verse" %>
+      <%= vr_form.label :verse_start, "Start of Verse:" %>
       <%= vr_form.number_field :verse_start, within: 1..176 %>
     </p>
     <p>
-      <%= vr_form.label :verse_end, "End of Verse" %>
+      <%= vr_form.label :verse_end, "End of Verse:" %>
       <%= vr_form.number_field :verse_end, within: 2..176 %>
       <!-- 2 is the minimum because verse_end > verse_start. -->
     </p>
   <% end %>
 
   <p>
-    <%= f.label :version, class: "required-field" %>
+    <%= f.label :version, "Version:", class: "required-field" %>
     <%= f.text_field :version, required: true %>
   </p>
   <p>
-    <%= f.label :verse_text, class: "required-field" %>
+    <%= f.label :verse_text, "Verse Text:", class: "required-field" %>
     <%= f.text_area :verse_text, required: true %>
   </p>
   <p>
