@@ -47,8 +47,18 @@ Specs:
 - [x] Include login (how e.g. Devise) - I wrote a login page with a form and a corresponding route, SessionsController action, and link. Like the signup page, users can only use this page when logged out. Users can only login if they provide a valid email and password.
 - [x] Include logout (how e.g. Devise) - I made a logout link and a corresponding route and SessionsController action. This link (which goes to SessionsController#destroy) can only be used and seen when the user is logged in.
 - [x] Include third party signup/login (how e.g. Devise/OmniAuth) - I used OmniAuth to allow users to sign up and login through Facebook.
-- [ ] Include nested resource show or index (URL e.g. users/2/recipes)
-- [ ] Include nested resource "new" form (URL e.g. recipes/1/ingredients/new)
+- [x] Include nested resource show or index (URL e.g. users/2/recipes) - 
+  URL e.g /verse_references/15/my_verses
+
+  These nested index routes allow users to view all MyVerses with a specific VerseReference.
+  The links to the nested index routes are on the VerseReferences index page.
+- [x] Include nested resource "new" form (URL e.g. recipes/1/ingredients/new) - 
+  URL e.g. /verse_references/4/my_verses/new
+
+  This nested "new" form allows users to create a MyVerse with a given VerseReference;
+  the VerseReference attributes are pre-filled on the form.
+  The links to these nested "new" forms are on the VerseReferences index page and the nested MyVerses pages, but only if the user hasn't created a MyVerse with that VerseReference.
+  If they try to create a MyVerse that they already have, they will be redirected with an error.
 - [ ] Include form display of validation errors (form URL e.g. /recipes/new)
 
 Confirm:
