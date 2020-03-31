@@ -18,13 +18,12 @@
   <% if @my_verses.empty? %>
     <p>No MyVerses yet.</p>
   <% else %>
-    <ul>
-      <% @my_verses.each do |mv| %><!-- This should be refactored with a partial and/or helper. -->
-        <li>
-          <%= link_to_my_verse(mv) %>
-          <%= render partial: "my_verses/links_to_edit_and_delete", locals: {my_verse: mv} %>
-        </li>
-      <% end %>
-    </ul>
+    <!-- I tried using a table at one point, but it only worked on the user's own profile - no one else's. -->
+
+    <% @my_verses.each do |mv| %><!-- This should be refactored with a partial and/or helper. -->
+      <%= link_to_my_verse(mv) %>
+      <%= render partial: "my_verses/links_to_edit_and_delete", locals: {my_verse: mv} %>
+      <hr>
+    <% end %>
   <% end %>
 </div>
