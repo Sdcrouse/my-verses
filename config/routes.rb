@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   end
 
   get '/signup', to: 'users#new'
-  resources :users, except: [:index, :new]
+  resources :users, only: [:create, :show]
 
   root 'static#home'
   
