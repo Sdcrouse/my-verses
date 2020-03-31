@@ -109,9 +109,7 @@ nav .button_to input {
 }
 
 .page p {
-  display: flex;
-  justify-content: center;
-  width: 75%;
+  padding: 0 5%;
 }
 
 .page div form {
