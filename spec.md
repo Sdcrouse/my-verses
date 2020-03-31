@@ -59,7 +59,9 @@ Specs:
   the VerseReference attributes are pre-filled on the form.
   The links to these nested "new" forms are on the VerseReferences index page and the nested MyVerses pages, but only if the user hasn't created a MyVerse with that VerseReference.
   If they try to create a MyVerse that they already have, they will be redirected with an error.
-- [ ] Include form display of validation errors (form URL e.g. /recipes/new)
+- [x] Include form display of validation errors (form URL e.g. /recipes/new) - 
+  All of the forms at the following URLs, display validation errors: 
+  /signup, /login, /my_verses/new, /my_verses/2/edit, and /verse_references/15/my_verses/new
 
 Confirm:
 - [ ] The application is pretty DRY
