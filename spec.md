@@ -33,7 +33,16 @@ Specs:
 
   Note: These validations have been tested out in the Rspec files.
 
-- [ ] Include a class level ActiveRecord scope method (model object & class method name and URL to see the working feature e.g. User.most_recipes URL: /users/most_recipes)
+- [x] Include a class level ActiveRecord scope method (model object & class method name and URL to see the working feature e.g. User.most_recipes URL: /users/most_recipes) - 
+  MyVerse.in_book(book_title) URL: /my_verses/books/:book (e.g. /my_verses/books/Genesis)
+
+  For the fun of it, I also added default scopes to the VerseReference and MyVerse model.
+  By default, VerseReferences are sorted by book, chapter, verse_start, and verse_end.
+  By default, MyVerses are sorted by verse_reference and version. In some cases, they are additionally sorted by username.
+  The intent was to make it easier for users to find a MyVerse and/or VerseReference.
+
+  Users can fill out a search form to find all MyVerses with a given book;
+  that search form will return an error unless the user writes a valid book title.
 - [x] Include signup (how e.g. Devise) - I wrote a signup page with a form and a corresponding route, UsersController action, and link. Users can only see and access this page when logged out.
 - [x] Include login (how e.g. Devise) - I wrote a login page with a form and a corresponding route, SessionsController action, and link. Like the signup page, users can only use this page when logged out. Users can only login if they provide a valid email and password.
 - [x] Include logout (how e.g. Devise) - I made a logout link and a corresponding route and SessionsController action. This link (which goes to SessionsController#destroy) can only be used and seen when the user is logged in.
