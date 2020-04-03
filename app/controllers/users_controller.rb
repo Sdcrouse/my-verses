@@ -1,11 +1,8 @@
 class UsersController < ApplicationController
   def new
-    if logged_in?
-      flash[:error] = "Nice try, Mr./Ms. Edge Case! You can't sign up unless you're logged out."
-      redirect_to user_path(current_user)
-    else
-      @user = User.new
-    end
+    redirect_if_logged_in("sign up") and return
+    
+    @user = User.new
   end
 
   def create

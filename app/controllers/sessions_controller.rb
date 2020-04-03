@@ -1,9 +1,6 @@
 class SessionsController < ApplicationController
   def new
-    if logged_in?
-      flash[:error] = "Trying to find a bug in the program, are we? Nope, you can't log in unless you're logged out."
-      redirect_to user_path(current_user)
-    end
+    redirect_if_logged_in("log in") and return
   end
 
   def create

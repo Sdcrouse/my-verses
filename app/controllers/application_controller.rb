@@ -17,4 +17,12 @@ class ApplicationController < ActionController::Base
         redirect_to root_path
       end
     end
+
+    def redirect_if_logged_in(action)
+      if logged_in?
+        flash[:error] = "Trying to find a bug in the program, are we? Nice try. You can't #{action} unless you're logged out."
+        redirect_to user_path(current_user)
+      end
+    end
+
 end
