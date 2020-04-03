@@ -69,7 +69,7 @@ class VerseReference < ApplicationRecord
   end
 
   def self.order_by_book_chapter_verse
-    order(
+    order( # Note: I will refactor this later. I need to change the chapter, verse_start, and verse_end from strings to integers.
       :book, "CAST(chapter AS INTEGER)", "CAST(verse_start AS INTEGER)", "CAST(verse_end AS INTEGER)"
     )
   end

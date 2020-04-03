@@ -30,7 +30,9 @@ class MyVerse < ApplicationRecord
     joins(:user).merge( User.order(:username) )
   end
 
-  def self.in_book(book_title)
+  def self.in_book(book_title) 
+    # I am using a class method here because, according to the documentation at https://guides.rubyonrails.org/active_record_querying.html#passing-in-arguments,
+    # "using a class method is the preferred way to accept arguments for scopes".
     joins(:verse_reference).merge( VerseReference.within_book(book_title) )
   end
 end
