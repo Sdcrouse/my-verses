@@ -69,12 +69,18 @@ class VerseReference < ApplicationRecord
   end
 
   def self.order_by_book_chapter_verse
-    order( # Note: I will refactor this later. I need to change the chapter, verse_start, and verse_end from strings to integers.
+    # Note: I will refactor this later. I need to change the chapter, verse_start, and verse_end from strings to integers.
+    # Since this is a complex ordering, I have decided not to use the #scope syntactic sugar until the above change is made.
+    
+    order(
       :book, "CAST(chapter AS INTEGER)", "CAST(verse_start AS INTEGER)", "CAST(verse_end AS INTEGER)"
     )
   end
 
   def self.within_book(book_title)
+    # I could refactor this with the #scope macro, but according to https://guides.rubyonrails.org/active_record_querying.html#passing-in-arguments,
+    # "...using a class method is the preferred way to accept arguments for scopes".
+
     where(book: book_title)
   end
 
