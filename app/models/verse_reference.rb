@@ -1,8 +1,5 @@
 class VerseReference < ApplicationRecord
-  default_scope { order_by_book_chapter_verse }
-  # The original default_scope didn't show the VerseReferences in the right order because all of the attributes were strings.
-  # [123, 2, 3].sort => [2, 3, 123], but ['123', '2', '3'].sort => ['123', '2', '3']
-  # Stretch goal: Change the verse_references table data types from string to integer (except for :book).
+  # ----------- Associations and validations ----------------
 
   has_many :my_verses
   has_many :users, through: :my_verses
@@ -32,6 +29,8 @@ class VerseReference < ApplicationRecord
   # This got tricky; I don't think I can use "inclusion", and "numericality" doesn't work with strings.
   validate :verse_end_must_be_greater_than_verse_start,
            :verse_end_can_only_be_176_or_lower
+
+  # -------------- Helper methods ---------------------
 
   def book=(book)
     # Instead of validating for a titleized book, 
@@ -67,6 +66,13 @@ class VerseReference < ApplicationRecord
       "#{book} #{chapter}"
     end
   end
+
+  # ------------- Scopes and finders -----------------
+
+  default_scope { order_by_book_chapter_verse }
+  # The original default_scope didn't show the VerseReferences in the right order because all of the attributes were strings.
+  # [123, 2, 3].sort => [2, 3, 123], but ['123', '2', '3'].sort => ['123', '2', '3']
+  # Stretch goal: Change the verse_references table data types from string to integer (except for :book).
 
   def self.order_by_book_chapter_verse
     # Note: I will refactor this later. I need to change the chapter, verse_start, and verse_end from strings to integers.
