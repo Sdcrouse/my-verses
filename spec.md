@@ -64,7 +64,7 @@ Specs:
   /signup, /login, /my_verses/new, /my_verses/2/edit, and /verse_references/15/my_verses/new
 
 Confirm:
-- [ ] The application is pretty DRY
-- [ ] Limited logic in controllers
-- [ ] Views use helper methods if appropriate
-- [ ] Views use partials if appropriate
+- [x] The application is pretty DRY - This is definitely true in my models, controllers, views, and even the test suite.
+- [x] Limited logic in controllers - I think this is true for the most part, except for the MyVersesController. That has a lot of private/helper methods that may belong in the MyVersesHelper, VerseReferencesHelper, or controllers/concerns/ directory.
+- [x] Views use helper methods if appropriate - I wrote and made use of these in a few view files, but it is possible that my views need to be refactored with other helper methods as well. Some helper methods are in the ApplicationController, while others are in the helpers/ directory.
+- [x] Views use partials if appropriate - This is very true, especially with regards to the MyVerse and User view files. I made sure to refactor with partials along the way. Most of them are in the views/shared/ directory, and the rest are in the views/my_verses/ directory.
