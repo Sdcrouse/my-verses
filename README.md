@@ -44,6 +44,8 @@ You can also run the Rspec test suite. First, migrate the test database with ```
 
 If you would like to see a demo of this app, go to https://www.loom.com/share/1a1cfaaba80e4f86af2298bc4170c8db.
 
+There is also a walk-through of this app at https://www.youtube.com/watch?v=nFCklCUEjuE&feature=youtu.be.
+
 ## Development notes
 
 * Ruby version: 2.6.1
