@@ -3,7 +3,7 @@ class MyVerse < ApplicationRecord
   belongs_to :verse_reference
   accepts_nested_attributes_for :verse_reference
 
-  default_scope { order_by_verse_reference_and_version }
+  default_scope { order_by_reference_version_and_username }
 
   validates :version, presence: true
   validates :verse_text, presence: true
@@ -20,13 +20,15 @@ class MyVerse < ApplicationRecord
     self.verse_reference.citation_format
   end
 
-  def self.order_by_verse_reference_and_version
+  def self.order_by_reference_version_and_username
+    # Due to the complexity of this scope, I am choosing not to use the #scope syntactic sugar here.
+    # Ideally, the User profile would not order MyVerses by username,
+    # but this at least simplifies the MyVersesController.
+
     joins(:verse_reference).merge(
       VerseReference.order_by_book_chapter_verse
-    ).order(:version)
+    ).order(:version).joins(:user).merge( User.order(:username) )
   end
-
-  scope :order_by_username, -> { joins(:user).merge(User.order(:username)) }
 
   def self.in_book(book_title) 
     # I am using a class method here because, according to the documentation at https://guides.rubyonrails.org/active_record_querying.html#passing-in-arguments,

@@ -5,13 +5,13 @@ class MyVersesController < ApplicationController
   def index
     if params[:verse_reference_id]
       find_verse_reference_or_redirect and return
-      @my_verses = @verse_reference.my_verses.order_by_username
+      @my_verses = @verse_reference.my_verses
     elsif params[:book]
       @book = params[:book]
       redirect_if_invalid_book and return
-      @my_verses = MyVerse.in_book(params[:book]).order_by_username
+      @my_verses = MyVerse.in_book(params[:book])
     else
-      @my_verses = MyVerse.all.order_by_username
+      @my_verses = MyVerse.all
     end
   end
 
