@@ -2,6 +2,8 @@
 
 Welcome to MyVerses! This is a Rails app that I built as my third Flatiron School project. It allows you to write your favorite Bible verses, and check out other people's favorites as well. My hope is that whoever uses this app will gain a better understanding and appreciation of God's Word.
 
+![MyVerses Home Page](app/assets/images/MyVerses_home_page.png)
+
 ## Features
 
 This app allows you to:
