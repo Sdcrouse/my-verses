@@ -32,6 +32,10 @@ class VerseReference < ApplicationRecord
 
   # -------------- Helper methods ---------------------
 
+  def self.titleize_book(book)
+    book.downcase.titleize
+  end
+
   def book=(book)
     # Instead of validating for a titleized book, 
     # I will convert it to one here.
