@@ -26,9 +26,7 @@ class MyVerse < ApplicationRecord
     ).order(:version)
   end
 
-  def self.order_by_username
-    joins(:user).merge( User.order(:username) )
-  end
+  scope :order_by_username, -> { joins(:user).merge(User.order(:username)) }
 
   def self.in_book(book_title) 
     # I am using a class method here because, according to the documentation at https://guides.rubyonrails.org/active_record_querying.html#passing-in-arguments,
