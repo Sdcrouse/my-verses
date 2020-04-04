@@ -45,7 +45,6 @@ class VerseReference < ApplicationRecord
 
     # Note: I tried to make use of the #titleize_book method above,
     # but that caused a bug that allowed users to create the same MyVerse and VerseReference over and over again!
-    # However, undoing that has only lessened the bug's effect; it appears to have been here all along.
   end
 
   def verse_end_must_be_greater_than_verse_start
