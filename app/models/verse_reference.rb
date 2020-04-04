@@ -40,11 +40,8 @@ class VerseReference < ApplicationRecord
     # Instead of validating for a titleized book, 
     # I will convert it to one here.
     
-    # write_attribute(:book, book.downcase.titleize) # This works.
-    super(book.downcase.titleize) # But this is the Rails way to do it.
-
-    # Note: I tried to make use of the #titleize_book method above,
-    # but that caused a bug that allowed users to create the same MyVerse and VerseReference over and over again!
+    # write_attribute(:book, self.class.titleize_book(book)) # This works.
+    super(self.class.titleize_book(book)) # But this is the Rails way to do it.
   end
 
   def verse_end_must_be_greater_than_verse_start
