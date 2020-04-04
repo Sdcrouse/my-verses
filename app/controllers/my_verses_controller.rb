@@ -79,6 +79,10 @@ class MyVersesController < ApplicationController
 
   private
 
+    # Ordinarily, some of these private methods would belong in the VerseReferencesController.
+    # However, since I am using nested params to create a VerseReference from the MyVersesController,
+    # the VerseReference-related methods are needed here.
+
     def find_myverse_or_redirect
       @my_verse = MyVerse.find_by(id: params[:id])
       redirect_if_nonexistent("MyVerse", @my_verse, my_verses_path) and return
@@ -126,6 +130,9 @@ class MyVersesController < ApplicationController
     end
 
     def redirect_if_nonexistent(obj_type, obj, path_of_redirection)
+      # Given how abstract this method is, it probably belongs in the ApplicationController.
+      # However, since I am currently only using it in the MyVersesController, I have decided to leave it here for now.
+      
       if obj.nil?
         flash[:error] = "This #{obj_type} does not exist."
         redirect_to path_of_redirection
