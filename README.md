@@ -61,6 +61,8 @@ There is also a walk-through of this app at https://www.youtube.com/watch?v=nFCk
   * Rspec-rails
   * Pry
 
+* I used Figma to help design my web pages. You can view those designs here: https://www.figma.com/file/ZVn3NeqHjnaxdM7MqjAjz1/Web-Pages?node-id=0%3A1.
+
 ## Contributing
 
 Please feel free to raise a new Issue on my repository if you have any problems with my app (installation, usage, bugs, etc), or you have suggestions for a new feature. Pull requests are also welcome.
