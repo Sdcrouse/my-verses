@@ -1,0 +1,10 @@
+<% my_verses.each do |mv| %>
+  <%= link_to_my_verse(mv) %>
+
+  <% unless on_user_profile %>
+    posted by <%= link_to(mv.user_name, user_path(mv.user)) %>
+  <% end %>
+
+  <%= render partial: "my_verses/links_to_edit_and_delete", locals: {my_verse: mv} %>
+  <hr>
+<% end %>
