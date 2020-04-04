@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  # --------- Associations and validations ------------------
   has_secure_password
   has_many :my_verses
   has_many :verse_references, through: :my_verses
@@ -7,6 +8,7 @@ class User < ApplicationRecord
   validates :email, presence: true, uniqueness: true, format: { with: URI::MailTo::EMAIL_REGEXP }
   # Here's where I got the format validation: https://stackoverflow.com/questions/38611405/email-validation-in-ruby-on-rails#answer-49925333
 
+  #------------ Helper methods -------------------
   def full_name
     if self.first_name.present? && self.last_name.present?
       "#{self.first_name} #{self.last_name}"
