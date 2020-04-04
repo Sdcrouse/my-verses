@@ -31,6 +31,9 @@ class MyVersesController < ApplicationController
   end
 
   def create
+    # Note: I discovered a bug here and in the #update action.
+    # It is possible to create the same MyVerse over and over again through the "New MyVerse" form.
+    # This has the added effect of creating the same VerseReference multiple times.
     @my_verse = MyVerse.new(my_verse_params)
     set_verse_reference_and_user_id
     redirect_if_user_already_has_this_myverse and return
