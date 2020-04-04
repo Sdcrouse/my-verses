@@ -44,7 +44,9 @@ If you wish to play around with the (SQLite) database, run ```rails c``` in your
 
 You can also run the Rspec test suite. First, migrate the test database with ```rails db:migrate RAILS_ENV=test```. Then, run the tests with ```rspec```.
 
-If you would like to see a demo of this app, go to https://www.loom.com/share/1a1cfaaba80e4f86af2298bc4170c8db.
+You can watch a demo of the MyVerses app here:
+
+https://www.loom.com/share/1a1cfaaba80e4f86af2298bc4170c8db.
 
 There is also a walk-through of this app at https://www.youtube.com/watch?v=nFCklCUEjuE&feature=youtu.be.
 
