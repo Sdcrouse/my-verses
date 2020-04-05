@@ -46,9 +46,11 @@ You can also run the Rspec test suite. First, migrate the test database with ```
 
 You can watch a demo of the MyVerses app here:
 
-https://www.loom.com/share/1a1cfaaba80e4f86af2298bc4170c8db.
+https://www.loom.com/share/1a1cfaaba80e4f86af2298bc4170c8db
 
-There is also a walk-through of this app at https://www.youtube.com/watch?v=nFCklCUEjuE&feature=youtu.be.
+There is also a walk-through of this app at https://www.youtube.com/watch?v=nFCklCUEjuE&feature=youtu.be
+
+Finally, I wrote a blog post about the MyVerses app here: https://stevendcrouse.com/myverses_a_rails_project_of_biblical_proportions
 
 ## Development notes
 
@@ -65,7 +67,7 @@ There is also a walk-through of this app at https://www.youtube.com/watch?v=nFCk
   * Rspec-rails
   * Pry
 
-* I used Figma to help design my web pages. You can view those designs here: https://www.figma.com/file/ZVn3NeqHjnaxdM7MqjAjz1/Web-Pages?node-id=0%3A1.
+* I used Figma to help design my web pages. You can view those designs here: https://www.figma.com/file/ZVn3NeqHjnaxdM7MqjAjz1/Web-Pages?node-id=0%3A1
 
 ## Contributing
 
