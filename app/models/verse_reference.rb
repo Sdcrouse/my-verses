@@ -80,12 +80,13 @@ class VerseReference < ApplicationRecord
 
   def self.order_by_book_chapter_verse
     # Note: I will refactor this later. I need to change the chapter, verse_start, and verse_end from strings to integers.
-    # However, this keeps returning deprecation warnings; evidently, this is a dangerous query method to use!
     # Since this is a complex ordering, I have decided not to use the #scope syntactic sugar until the above change is made.
 
-    order(
-      :book, "CAST(chapter AS INTEGER)", "CAST(verse_start AS INTEGER)", "CAST(verse_end AS INTEGER)"
-    )
+    order(:book, 
+      Arel.sql("CAST(chapter AS INTEGER)"),
+      Arel.sql("CAST(verse_start AS INTEGER)"),
+      Arel.sql("CAST(verse_end AS INTEGER)")
+    ) # Arel.sql is needed to avoid a deprecation warning.
   end
 
   def self.within_book(book_title)
