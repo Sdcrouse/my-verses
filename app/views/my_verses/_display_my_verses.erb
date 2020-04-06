@@ -1,7 +1,7 @@
 <% my_verses.each do |mv| %>
   <%= link_to_my_verse(mv) %>
 
-  <% unless on_user_profile %>
+  <% unless on_user_profile %> <!-- Note: on_user_profile is a local, not a helper method. -->
     posted by <%= link_to(mv.user_name, user_path(mv.user)) %>
   <% end %>
 
