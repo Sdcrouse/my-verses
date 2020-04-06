@@ -20,6 +20,9 @@
       <!-- name: nil prevents "commit=Search" from showing up in the URL. -->
     <% end %>
 
+    <%= button_to "Click here to see the user with the most MyVerses", 
+        user_with_most_myverses_path, method: :get %>
+
     <%= render partial: "display_my_verses", locals: {my_verses: @my_verses, on_user_profile: false} %>
   <% end %>
 </div>
