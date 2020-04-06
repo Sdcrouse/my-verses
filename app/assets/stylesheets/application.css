@@ -90,6 +90,7 @@ nav .button_to input {
 #max-myverses-user {
   color: black;
   background-color: white;
+  justify-content: space-evenly;
 }
 
 .page div {
