@@ -1,4 +1,9 @@
-<h1>User with the most MyVerses: <%= link_to(@user.username, user_path(@user)) %></h1>
+<div>
+  <h1 id="max-myverses-user">User with the most MyVerses: <%= link_to(@user.username, user_path(@user)) %></h1>
+</div>
 
-<%= render partial: "my_verses/display_my_verses", locals: {my_verses: @my_verses, on_user_profile: true} %>
-<!-- This isn't perfect, since I'm not really on the user profile, but it makes my views cleaner and more DRY. -->
+<div>
+  <h2><%= @user.username %>'s MyVerses:</h2>
+  <%= render partial: "my_verses/display_my_verses", locals: {my_verses: @my_verses, on_user_profile: true} %>
+  <!-- This isn't perfect, since I'm not really on the user profile, but it makes my views cleaner and more DRY. -->
+</div>

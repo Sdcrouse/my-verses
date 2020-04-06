@@ -87,6 +87,11 @@ nav .button_to input {
   margin: 0;
 }
 
+#max-myverses-user {
+  color: black;
+  background-color: white;
+}
+
 .page div {
   display: flex;
   flex-direction: column;
