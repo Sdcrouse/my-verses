@@ -49,10 +49,8 @@ class User < ApplicationRecord
 
     # Refactor idea: Try to use an ActiveRecord query method instead.
 
-    my_verse_totals = []
-
-    self.all.each do |user|
-      my_verse_totals << user.my_verses.count
+    my_verse_totals = self.all.collect do |user|
+      user.my_verses.count
     end
 
     self.all.detect do |user|
