@@ -1,10 +1,4 @@
 <h1>User with the most MyVerses: <%= link_to(@user.username, user_path(@user)) %></h1>
 
-<%#= render partial: "my_verses/display_my_verses", locals: {my_verses: @my_verses} %>
-
-<% @my_verses.each do |mv| %>
-  <%= link_to_my_verse(mv) %>
-
-  <%= render partial: "my_verses/links_to_edit_and_delete", locals: {my_verse: mv} %>
-  <hr>
-<% end %>
+<%= render partial: "my_verses/display_my_verses", locals: {my_verses: @my_verses, on_user_profile: true} %>
+<!-- This isn't perfect, since I'm not really on the user profile, but it makes my views cleaner and more DRY. -->
