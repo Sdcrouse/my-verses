@@ -23,6 +23,11 @@ class UsersController < ApplicationController
     @my_verses = @user.my_verses
   end
 
+  def most_myverses
+    @user = User.with_most_my_verses
+    @my_verses = @user.my_verses
+  end
+
   private
     def user_params
       params.require(:user).permit(:username, :email, :first_name, :last_name, :password)

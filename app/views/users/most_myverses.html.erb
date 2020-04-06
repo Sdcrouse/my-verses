@@ -1,0 +1,10 @@
+<h1>User with the most MyVerses: <%= @user.username %></h1>
+
+<%#= render partial: "my_verses/display_my_verses", locals: {my_verses: @my_verses} %>
+
+<% @my_verses.each do |mv| %>
+  <%= link_to_my_verse(mv) %>
+
+  <%= render partial: "my_verses/links_to_edit_and_delete", locals: {my_verse: mv} %>
+  <hr>
+<% end %>

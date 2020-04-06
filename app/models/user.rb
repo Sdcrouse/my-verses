@@ -37,4 +37,24 @@ class User < ApplicationRecord
   def find_myverse_with_reference(ref)
     self.my_verses.find_by(verse_reference: ref)
   end
+
+  def self.with_most_my_verses
+    # Find the user with the most my_verses
+    
+    # self.all, find the user with the maximum value of my_verses.count
+    # where method
+
+    # Get the count of each user's my_verses.
+    # Get the user whose count of my_verses is the maximum.
+
+    my_verse_totals = []
+    
+    self.all.each do |user|
+      my_verse_totals << user.my_verses.count
+    end
+
+    self.all.detect do |user|
+      user.my_verses.count == my_verse_totals.max
+    end
+  end
 end

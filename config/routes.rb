@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get '/user_with_most_myverses', to: "users#most_myverses"
+
   get '/my_verses/books/:book', to: 'my_verses#index'
   resources :my_verses
   
