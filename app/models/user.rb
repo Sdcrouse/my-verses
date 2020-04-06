@@ -47,8 +47,10 @@ class User < ApplicationRecord
     # Get the count of each user's my_verses.
     # Get the user whose count of my_verses is the maximum.
 
+    # Refactor idea: Try to use an ActiveRecord query method instead.
+
     my_verse_totals = []
-    
+
     self.all.each do |user|
       my_verse_totals << user.my_verses.count
     end
