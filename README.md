@@ -20,6 +20,8 @@ This app allows you to:
 
 * View other people's profiles and individual MyVerses.
 
+* Find out who has the most MyVerses.
+
 * View a list of Verse References (book, chapter, and verse) that have (or have had) at least one MyVerse created with them.
   * Note: Every time you create a new MyVerse, a new Verse Reference is added to this list, unless it is already there. It is not possible at this time to delete a Verse Reference.
 
