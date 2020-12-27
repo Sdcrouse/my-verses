@@ -103,7 +103,7 @@ class MyVersesController < ApplicationController
 
     def my_verse_params
       params.require(:my_verse).permit(
-        :version, :verse_text, :reason_liked
+        :version, :verse_text, :reason_liked, :category
       )
     end
 
