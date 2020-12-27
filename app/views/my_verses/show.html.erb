@@ -7,6 +7,12 @@
     <p><%= @my_verse.reason_liked %></p>
   <% end %>
   
+  <% if @my_verse.category %>
+    <p>
+      <strong>Category: </strong><%= @my_verse.category %>
+    </p>
+  <% end %>
+
   <h4>Posted by:</h4>
   <%= link_to(@my_verse.user_name, user_path(@my_verse.user)) %>
   <br>
