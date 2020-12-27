@@ -13,9 +13,7 @@
     </p>
   <% end %>
 
-  <h4>Posted by:</h4>
-  <%= link_to(@my_verse.user_name, user_path(@my_verse.user)) %>
-  <br>
+  <p><strong>Posted by: </strong><%= link_to(@my_verse.user_name, user_path(@my_verse.user)) %></p>
   
   <%= render partial: "links_to_edit_and_delete", locals: {my_verse: @my_verse} %>
 </div>
