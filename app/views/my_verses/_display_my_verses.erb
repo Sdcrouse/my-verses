@@ -1,10 +1,11 @@
 <% my_verses.each do |mv| %>
-  <%= link_to_my_verse(mv) %>
+  <p>
+    <%= link_to_my_verse(mv) %>
 
-  <% unless on_user_profile %> <!-- Note: on_user_profile is a local, not a helper method. -->
-    posted by <%= link_to(mv.user_name, user_path(mv.user)) %>
-  <% end %>
-
-  <%= render partial: "my_verses/links_to_edit_and_delete", locals: {my_verse: mv} %>
-  <hr>
+    <% if on_user_profile %> <!-- Note: on_user_profile is a local, not a helper method. -->
+      <%= render partial: "my_verses/links_to_edit_and_delete", locals: {my_verse: mv} %>
+    <% else %>
+      , posted by <%= link_to(mv.user_name, user_path(mv.user)) %>
+    <% end %>
+  </p>
 <% end %>
