@@ -7,7 +7,7 @@
     <p><%= @my_verse.reason_liked %></p>
   <% end %>
   
-  <% if @my_verse.category %>
+  <% unless @my_verse.category.blank? %>
     <p>
       <strong>Category: </strong><%= @my_verse.category %>
     </p>
