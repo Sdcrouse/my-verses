@@ -56,9 +56,9 @@ Finally, I wrote a blog post about the MyVerses app here: https://stevendcrouse.
 
 ## Development notes
 
-* Ruby version: 2.6.1
+* Ruby version: 3.1.0
 
-* Rails version: 5.2.4.1
+* Rails version: 6.1.7.10
 
 * In addition to Ruby and Rails, MyVerses makes use of the following gems:
   * Omniauth
